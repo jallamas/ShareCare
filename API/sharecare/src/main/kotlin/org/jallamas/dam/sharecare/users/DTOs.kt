@@ -1,7 +1,7 @@
 package org.jallamas.dam.sharecare.users
 
-import org.jallamas.dam.sharecare.entidades.Solicitud
 import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.upload.ImgurImageAttribute
 import java.util.*
 
 data class UserDTO(
@@ -11,10 +11,11 @@ data class UserDTO(
         var localidad : String,
         var servicioCuidados : Boolean,
         var precioHora : Float,
+        var img : ImgurImageAttribute?,
         val id: UUID? = null
 )
 
-fun User.toUserDTO() = UserDTO(username, fullName, phone, localidad, servicioCuidados, precioHora, id)
+fun User.toUserDTO() = UserDTO(username, fullName, phone, localidad, servicioCuidados, precioHora, img, id)
 
 data class CreateUserDTO(
         var username: String,
@@ -24,7 +25,8 @@ data class CreateUserDTO(
         val phone : String,
         val localidad : String,
         val servicioCuidados : Boolean,
-        val precioHora : Float
+        val precioHora : Float,
+        val img : ImgurImageAttribute?
 )
 
 data class EditUserDTO(

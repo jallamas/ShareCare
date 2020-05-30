@@ -19,6 +19,7 @@ data class User (
         var localidad : String,
         var servicioCuidados : Boolean,
         var precioHora : Float,
+        var img : ImgurImageAttribute? = null,
 
         @ElementCollection(fetch = FetchType.EAGER)
         val roles: MutableSet<String> = HashSet(),
@@ -33,12 +34,12 @@ data class User (
         @JsonManagedReference @OneToMany(mappedBy="solicitado", fetch = FetchType.LAZY, cascade = [CascadeType.REMOVE])
         var solicitudesRecibidas : List<Solicitud>? = null,
 
-        //var img : ImgurImageAttribute? = null,
+
 
         @Id @GeneratedValue val id : UUID? = null
 ) : UserDetails{
-        constructor(username: String, password: String, fullName: String, phone: String, localidad: String, servicioCuidados: Boolean, precioHora: Float) :
-                this(username, password, fullName, phone, localidad, servicioCuidados, precioHora,
+        constructor(username: String, password: String, fullName: String, phone: String, localidad: String, servicioCuidados: Boolean, precioHora: Float, img : ImgurImageAttribute?) :
+                this(username, password, fullName, phone, localidad, servicioCuidados, precioHora, img,
                         mutableSetOf("USER"), true, true, true, true)
 
         override fun getAuthorities(): MutableCollection<out GrantedAuthority> =

@@ -3,8 +3,6 @@ package org.jallamas.dam.sharecare.solicitudes
 
 import org.jallamas.dam.sharecare.entidades.Solicitud
 import org.jallamas.dam.sharecare.entidades.User
-import org.jallamas.dam.sharecare.users.EditUserDTO
-import org.jallamas.dam.sharecare.users.UserDTO
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.annotation.AuthenticationPrincipal
