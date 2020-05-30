@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "863ac455-cd87-46c3-8a11-3b2da346693f",
+		"name": "ShareCare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "new",
+							"type": "file",
+							"src": "/C:/Users/josel/Desktop/newUser.json"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/josel/Pictures/spain_flag.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado de usuarios que ofrecen servicio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYzg3Njg5Mi0zNTZkLTRmMmEtOTRjMC1hNmM0OTM5OWU0NDkiLCJleHAiOjE1OTE3MTUyODMsImlhdCI6MTU5MDg1MTI4MywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiIn0.jhkeLxtiDYzXiwGDF0IV9T20x_8IxJpPwsBYS3eUxJ2nvB1X0S2-TsChtLFW0lHljbK-Li30pUnh7iwIyzq7MA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/user/servicio/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						"servicio",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener perfil usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMmUwZTcyNy0zMDBjLTQ2ZjctYTQ5MS00NDAxNGY3ZTlhOTciLCJleHAiOjE1OTEyOTMyNjgsImlhdCI6MTU5MDQyOTI2OCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.wL97xsjmIum-Vs8vx-uTWmv1qjOTljhK4f50zt2CXXz4fhOw0rTjNeLuymmScDrEemCsHH56Deb3XCvsKA1U-A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/user/me",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar perfil usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMmUwZTcyNy0zMDBjLTQ2ZjctYTQ5MS00NDAxNGY3ZTlhOTciLCJleHAiOjE1OTEyOTMyNjgsImlhdCI6MTU5MDQyOTI2OCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.wL97xsjmIum-Vs8vx-uTWmv1qjOTljhK4f50zt2CXXz4fhOw0rTjNeLuymmScDrEemCsHH56Deb3XCvsKA1U-A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"fullname\": \"José Antonio Llamas\",\n\t\"phone\": \"987654321\",\n\t\"localidad\": \"Sevilla\",\n\t\"servicioCuidados\": \"false\",\n\t\"precioHora\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"usuario\",\n\t\"password\":\"usuario\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitudes hechas por un usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMDMyODdjZi00ZmYyLTQzN2YtYjMwNi01Zjg4Nzg4ZTg0ZjMiLCJleHAiOjE1OTE2MTYwMDIsImlhdCI6MTU5MDc1MjAwMywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.2e9sHDrustZXP32fXoPyYjQ0INy4u4dvLz9tB5-5G6VK60I7EScAkrpmtw7O2GUAXsJdgMu8uyRdByukYKgULA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/solicitud/emitidas/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"solicitud",
+						"emitidas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear solicitud",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZDJiYzE3Yy0wMTU1LTQ1ZGItODNhNi1hNzE1MmRiZTQ2Y2YiLCJleHAiOjE1OTE2MTY4NjIsImlhdCI6MTU5MDc1Mjg2MiwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.xZzPsFZzvbBdipxgoGz51Ki6c3E0vdTeVj2xHtnJU960ST2u3kHbbCmE_Yl25CzMzv2v6HLLDtP1JxFh5ohUvQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descripcion\": \"Creación de Solicitud de prueba1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/solicitud/72dd067c-d88b-408c-ba03-6a6dad88c570",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"solicitud",
+						"72dd067c-d88b-408c-ba03-6a6dad88c570"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitudes recibidas por un usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmODMzYTk4Ni1iOGJiLTRlYjktYTBjOC0xZDgwY2M2NjYyYzIiLCJleHAiOjE1OTE3MTgzNzEsImlhdCI6MTU5MDg1NDM3MSwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.tbqXzYC3zlDY_d0v7JvRtWIUAE4q0scrLCXY3c2MeotR7J7cs4D6cA63ZvHJRSAgYEgK5QsBCF72hxnPsepwfA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/solicitud/recibidas/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"solicitud",
+						"recibidas",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

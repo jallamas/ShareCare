@@ -28,28 +28,29 @@ class InitDataComponent(
 	@PostConstruct
 	fun initData()  {
 		val user = User("usuario", encoder.encode("usuario"),"José Antonio Llamas","954545454", "Sevilla"
-					,true,4.5f)
+					,true,4.5f, null)
 		userRepository.save(user)
 
-		val user1 = User("jallamas1", encoder.encode("12345678"),"Mariano Romero López","954545454", "Sevilla"
-				,false,0f)
+		val user1 = User("jallamas1", encoder.encode("12345678"),"Mariano Romero López","654789321", "Sevilla"
+				,false,0f, null)
 		userRepository.save(user1)
 
-		val user2 = User("jallamas2", encoder.encode("12345678"),"Federico Jiménez","954545454", "Sevilla"
-				,true,4.5f)
+		val user2 = User("jallamas2", encoder.encode("12345678"),"Federico Jiménez","654123789", "Sevilla"
+				,true,4.5f, null)
 		userRepository.save(user2)
 
-		val user3 = User("jallamas3", encoder.encode("12345678"),"José Antonio Llamas","954545454", "Sevilla"
-				,true,7.5f)
+		val user3 = User("jallamas3", encoder.encode("12345678"),"Carmen Gaona","321456987", "Sevilla"
+				,true,7.5f, null)
 		userRepository.save(user3)
 
-		val user4 = User("jallamas4", encoder.encode("12345678"),"José Antonio Llamas","954545454", "Sevilla"
-				,true,6.5f)
+		val user4 = User("jallamas4", encoder.encode("12345678"),"Jesús Martín","789654123", "Sevilla"
+				,true,6.5f, null)
 		userRepository.save(user4)
 
 		val solicitudesHechaUser = listOf(
 				Solicitud("Prueba1", LocalDateTime.of(2020,5,15,13,45),user,user1),
-				Solicitud("Prueba2", LocalDateTime.of(2020,4,21,17,32),user,user2)
+				Solicitud("Prueba2", LocalDateTime.of(2020,4,21,17,32),user,user2),
+				Solicitud("Prueba3", LocalDateTime.of(2020,5,27,16,2),user3,user)
 		)
 		solicitudRepository.saveAll(solicitudesHechaUser)
 	}
