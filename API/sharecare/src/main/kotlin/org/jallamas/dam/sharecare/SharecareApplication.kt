@@ -27,7 +27,7 @@ class InitDataComponent(
 
 	@PostConstruct
 	fun initData()  {
-		val user = User("jallamas", encoder.encode("12345678"),"José Antonio Llamas","954545454", "Sevilla"
+		val user = User("usuario", encoder.encode("usuario"),"José Antonio Llamas","954545454", "Sevilla"
 					,true,4.5f)
 		userRepository.save(user)
 
