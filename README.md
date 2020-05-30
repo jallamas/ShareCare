@@ -21,3 +21,5 @@ Hay toda una batería de usuarios creados para poder interactuar entre ellos.
 * Un usuario podrá editar sus datos de perfil, pudiendo dejar de ofrecer los servicios en cualquier momento (o empezar a hacerlo).
 
 * Cualquier usuario, ofrezca o no el servicio, podrá requerir el servicio de otra persona.
+
+adjunto una [colección de peticiones de postman]() con las que poder probar el API.
