@@ -22,4 +22,4 @@ Hay toda una batería de usuarios creados para poder interactuar entre ellos.
 
 * Cualquier usuario, ofrezca o no el servicio, podrá requerir el servicio de otra persona.
 
-adjunto una [colección de peticiones de postman]() con las que poder probar el API.
+adjunto una [colección de peticiones de postman](https://github.com/jallamas/ShareCare/blob/master/ShareCare.postman_collection.json) con las que poder probar el API.
