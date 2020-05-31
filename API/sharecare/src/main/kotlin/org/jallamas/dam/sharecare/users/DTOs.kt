@@ -5,17 +5,17 @@ import org.jallamas.dam.sharecare.upload.ImgurImageAttribute
 import java.util.*
 
 data class UserDTO(
-        var username : String,
+        var username: String,
         var fullName: String,
-        var phone : String,
-        var localidad : String,
-        var servicioCuidados : Boolean,
-        var precioHora : Float,
-        var img : ImgurImageAttribute?,
+        var phone: String,
+        var localidad: String,
+        var servicioCuidados: Boolean,
+        var precioHora: Float,
+        var img: String?=null,
         val id: UUID? = null
 )
 
-fun User.toUserDTO() = UserDTO(username, fullName, phone, localidad, servicioCuidados, precioHora, img, id)
+fun User.toUserDTO(url:String?) = UserDTO(username, fullName, phone, localidad, servicioCuidados, precioHora, url, id)
 
 data class CreateUserDTO(
         var username: String,

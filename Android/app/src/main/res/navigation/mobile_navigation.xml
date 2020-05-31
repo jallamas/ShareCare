@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_disponibles">
+
+    <fragment
+        android:id="@+id/navigation_disponibles"
+        android:name="com.salesianostriana.sharecare.ui.disponibles.DisponiblesFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_user_disponible_list" />
+
+    <fragment
+        android:id="@+id/navigation_enviadas"
+        android:name="com.salesianostriana.sharecare.ui.enviadas.SolicitudesEnviadasFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_recibidas"
+        android:name="com.salesianostriana.sharecare.ui.recibidas.SolicitudesRecibidasFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>

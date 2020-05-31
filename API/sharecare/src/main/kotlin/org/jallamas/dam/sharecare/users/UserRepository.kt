@@ -8,6 +8,6 @@ interface UserRepository : JpaRepository<User, UUID> {
 
     fun findByUsername(username : String) : Optional<User>
 
-    fun findByServicioCuidadosTrue (): List<UserDTO>
+    fun findByServicioCuidadosTrue (): List<User>
 
 }

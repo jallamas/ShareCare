@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ShareCare</string>
+    <string name="title_home">Servicios disponibles</string>
+    <string name="title_dashboard">Solicitudes enviadas</string>
+    <string name="title_notifications">Solicitudes recibidas</string>
+    <string name="app_title">ShareCare App</string>
+    <string name="hint_login_password">Password</string>
+    <string name="hint_login_username">Usuario</string>
+    <string name="button_login">LOGIN</string>
+    <string name="login_register">Regístrate</string>
+    <string name="servicio_list_fullname_title">Nombre:</string>
+    <string name="servicio_list_localidad_title">Localidad:</string>
+    <string name="logout">LogOut</string>
+    <string name="enviadas_list_descripcion_title">Descripción:</string>
+    <string name="enviadas_list_destinatario_title">Destinatario:</string>
+    <string name="recibidas_list_solicitante_title">Solicitante:</string>
+    <string name="recibidas_list_descripcion_title">Descripción:</string>
+    <string name="recibidas_list_phone_title">Teléfono:</string>
+    <string name="register_username_hint">Nombre de usuario</string>
+    <string name="register_fullname_hint">Nombre completo</string>
+    <string name="register_phone_hint">Teléfono</string>
+    <string name="register_hint_localidad">Localidad</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_password2">Repita la password</string>
+    <string name="register_checkbox_servicio">¿Ofrece el servicio de cuidados a domicilio?</string>
+    <string name="register_precio_hint">Precio por hora</string>
+    <string name="btn_register_upload_img">Subir imagen</string>
+    <string name="btn_register_send">Registrar</string>
+</resources>

@@ -2,10 +2,9 @@ package org.jallamas.dam.sharecare.solicitudes
 
 import org.jallamas.dam.sharecare.entidades.Solicitud
 import org.jallamas.dam.sharecare.entidades.User
-import org.jallamas.dam.sharecare.users.EditUserDTO
 import org.jallamas.dam.sharecare.users.UserRepository
 import org.springframework.stereotype.Service
-import java.time.LocalDateTime
+import java.time.LocalDate
 import java.util.*
 
 @Service
@@ -20,7 +19,7 @@ class SolicitudService (
 
         return Optional.of(
             with(solicitudDTO){
-                solicitudRepository.save(Solicitud(descripcion, LocalDateTime.now(),solicitante,userSolicitado))
+                solicitudRepository.save(Solicitud(descripcion, LocalDate.now(),solicitante,userSolicitado))
             }
         )
     }

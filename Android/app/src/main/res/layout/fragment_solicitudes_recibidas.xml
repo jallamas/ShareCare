@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="16dp"
+    app:cardBackgroundColor="@color/design_default_color_on_primary"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/textViewRecibidasFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewRecibidasSolicitanteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/recibidas_list_solicitante_title"
+            app:layout_constraintStart_toStartOf="@+id/textViewRecibidasFecha"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasFecha" />
+
+        <TextView
+            android:id="@+id/textViewRecibidasDescripcionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/recibidas_list_descripcion_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasPhoneSolicitanteTitle" />
+
+        <TextView
+            android:id="@+id/textViewRecibidasPhoneSolicitanteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/recibidas_list_phone_title"
+            app:layout_constraintStart_toStartOf="@+id/textViewRecibidasSolicitanteTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasSolicitanteTitle" />
+
+        <TextView
+            android:id="@+id/textViewRecibidasSolicitante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRecibidasSolicitanteTitle"
+            app:layout_constraintStart_toEndOf="@+id/textViewRecibidasSolicitanteTitle"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecibidasSolicitanteTitle" />
+
+        <TextView
+            android:id="@+id/textViewRecibidasPhoneSolicitante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRecibidasPhoneSolicitanteTitle"
+            app:layout_constraintStart_toStartOf="@+id/textViewRecibidasSolicitante"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasSolicitanteTitle" />
+
+        <TextView
+            android:id="@+id/textViewRecibidasDescripcion"
+            android:layout_width="299dp"
+            android:layout_height="18dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewRecibidasPhoneSolicitante"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecibidasDescripcionTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -3,11 +3,13 @@ package org.jallamas.dam.sharecare
 import org.jallamas.dam.sharecare.entidades.Solicitud
 import org.jallamas.dam.sharecare.entidades.User
 import org.jallamas.dam.sharecare.solicitudes.SolicitudRepository
+import org.jallamas.dam.sharecare.upload.ImgurImageAttribute
 import org.jallamas.dam.sharecare.users.UserRepository
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
+import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.annotation.PostConstruct
 
@@ -28,29 +30,29 @@ class InitDataComponent(
 	@PostConstruct
 	fun initData()  {
 		val user = User("usuario", encoder.encode("usuario"),"José Antonio Llamas","954545454", "Sevilla"
-					,true,4.5f, null)
+					,true,4.5f, ImgurImageAttribute("X2zbtAP","zj25RFOMF5JBKOH"))
 		userRepository.save(user)
 
 		val user1 = User("jallamas1", encoder.encode("12345678"),"Mariano Romero López","654789321", "Sevilla"
-				,false,0f, null)
+				,false,0f, ImgurImageAttribute("bp9qFpf","cHcr3t7xGOGUNgo"))
 		userRepository.save(user1)
 
 		val user2 = User("jallamas2", encoder.encode("12345678"),"Federico Jiménez","654123789", "Sevilla"
-				,true,4.5f, null)
+				,true,4.5f, ImgurImageAttribute("ZvOe1OV","HDmUdb29rlPfHpn"))
 		userRepository.save(user2)
 
 		val user3 = User("jallamas3", encoder.encode("12345678"),"Carmen Gaona","321456987", "Sevilla"
-				,true,7.5f, null)
+				,true,7.5f, ImgurImageAttribute("DkbRq2t","xWUFB53FPz6eYP9"))
 		userRepository.save(user3)
 
 		val user4 = User("jallamas4", encoder.encode("12345678"),"Jesús Martín","789654123", "Sevilla"
-				,true,6.5f, null)
+				,true,6.5f, ImgurImageAttribute("LCg61vP","HZadeolHsXOzfPz"))
 		userRepository.save(user4)
 
 		val solicitudesHechaUser = listOf(
-				Solicitud("Prueba1", LocalDateTime.of(2020,5,15,13,45),user,user1),
-				Solicitud("Prueba2", LocalDateTime.of(2020,4,21,17,32),user,user2),
-				Solicitud("Prueba3", LocalDateTime.of(2020,5,27,16,2),user3,user)
+				Solicitud("Prueba1", LocalDate.of(2020,5,15),user,user1),
+				Solicitud("Prueba2", LocalDate.of(2020,4,21),user,user2),
+				Solicitud("Prueba3", LocalDate.of(2020,5,27),user3,user)
 		)
 		solicitudRepository.saveAll(solicitudesHechaUser)
 	}
