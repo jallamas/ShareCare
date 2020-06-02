@@ -54,7 +54,9 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
         return user
     }
 
-    suspend fun registerNewUser(req: RequestBody, file: MultipartBody.Part) = shareCareService.registerUser(req,file)
+    suspend fun registerNewUserPhoto(req: RequestBody, file: MultipartBody.Part) = shareCareService.registerUserPhoto(req,file)
+
+    suspend fun registerNewUser(req: RequestBody) = shareCareService.registerUser(req)
 
     fun usuariosConServicio() : MutableLiveData<List<User>>{
         val call :Call<List<User>>? = shareCareService.usersConServicio()

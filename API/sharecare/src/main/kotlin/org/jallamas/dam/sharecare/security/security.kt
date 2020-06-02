@@ -64,7 +64,7 @@ class WebSecurityConfiguration(
                 .and()
                 .authorizeRequests()
                 .antMatchers( "/h2-console/**").permitAll()
-                .antMatchers(POST,"/auth/login", "/user/").permitAll()
+                .antMatchers(POST,"/auth/login", "/user/","/user/nophoto/").permitAll()
                 .antMatchers(GET,"/solicitud/**").hasRole("USER")
 
         http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter::class.java)

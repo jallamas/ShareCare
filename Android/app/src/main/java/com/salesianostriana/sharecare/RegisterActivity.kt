@@ -132,10 +132,9 @@ class RegisterActivity : AppCompatActivity() {
                     val requestBody = Gson().toJson(request).toRequestBody("application/json".toMediaTypeOrNull())
 
                    if(file==null) {
-                       file = createMultipart( Uri.parse("ic_user.png"))
-                       userViewModel.registerNewUser(requestBody, file!!)
+                       userViewModel.registerNewUser(requestBody)
                    }else {
-                       userViewModel.registerNewUser(requestBody, file!!)
+                       userViewModel.registerNewUserPhoto(requestBody, file!!)
                    }
                     userViewModel.newUser.observe(this, Observer {
                         when (it) {

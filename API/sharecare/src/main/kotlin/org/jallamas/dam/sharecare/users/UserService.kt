@@ -1,5 +1,6 @@
 package org.jallamas.dam.sharecare.users
 
+
 import org.jallamas.dam.sharecare.entidades.User
 import org.jallamas.dam.sharecare.upload.ImgurImageAttribute
 import org.jallamas.dam.sharecare.upload.ImgurStorageService
@@ -29,7 +30,35 @@ class UserService (
         }else {
             return Optional.of(
                     with(newUser) {
-                        repo.save(User(username, encoder.encode(password), fullname, phone, localidad, servicioCuidados, precioHora,imageAttribute, mutableSetOf("USER")))
+                        repo.save(User(username, encoder.encode(password), fullname, phone, localidad, servicioCuidados,
+                                precioHora,imageAttribute, mutableSetOf("USER")))
+                    }
+            )
+        }
+    }
+
+    fun createSinImagen(newUser: CreateUserDTO): Optional<User> {
+
+        var imageAttribute: ImgurImageAttribute? = null
+
+        if (findByUsername(newUser.username).isPresent){
+            return Optional.empty()
+        }else {
+            return Optional.of(
+                    with(newUser) {
+                        repo.save(
+                                User(
+                                        username,
+                                        encoder.encode(password),
+                                        fullname,
+                                        phone,
+                                        localidad,
+                                        servicioCuidados,
+                                        precioHora,
+                                        imageAttribute,
+                                        mutableSetOf("USER")
+                                )
+                        )
                     }
             )
         }

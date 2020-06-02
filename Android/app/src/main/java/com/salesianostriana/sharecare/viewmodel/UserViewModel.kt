@@ -22,11 +22,21 @@ class UserViewModel @Inject constructor(val userRepository: UserRepository) : Vi
     var user : MutableLiveData<Resource<User>> = MutableLiveData()
     var editUser : MutableLiveData<Resource<User>> = MutableLiveData()
 
+    init {
+        getPerfilUser()
+    }
+
     fun doLogin(req : LoginReq) : LiveData<User> = userRepository.login(req)
 
-    fun registerNewUser(req : RequestBody, file : MultipartBody.Part) = viewModelScope.launch {
+    fun registerNewUserPhoto(req : RequestBody, file : MultipartBody.Part) = viewModelScope.launch {
         newUser.value = Resource.Loading()
-        val resp = userRepository.registerNewUser(req,file)
+        val resp = userRepository.registerNewUserPhoto(req,file)
+        newUser.value =handleResponse(resp)
+    }
+
+    fun registerNewUser(req : RequestBody) = viewModelScope.launch {
+        newUser.value = Resource.Loading()
+        val resp = userRepository.registerNewUser(req)
         newUser.value =handleResponse(resp)
     }
 

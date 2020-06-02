@@ -29,6 +29,17 @@ data class CreateUserDTO(
         val img : ImgurImageAttribute?
 )
 
+data class CreateUserSinImagenDTO(
+        var username: String,
+        var fullname: String,
+        val password: String,
+        val password2: String,
+        val phone : String,
+        val localidad : String,
+        val servicioCuidados : Boolean,
+        val precioHora : Float
+)
+
 data class EditUserDTO(
         var fullname: String,
         val phone : String,

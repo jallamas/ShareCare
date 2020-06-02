@@ -22,10 +22,13 @@ interface ShareCareService {
 
     @Multipart
     @POST("/user/")
-    suspend fun registerUser(
+    suspend fun registerUserPhoto(
         @Part("new") req : RequestBody,
         @Part file: MultipartBody.Part
     ) : Response<User>
+
+    @POST("/user/nophoto/")
+    suspend fun registerUser(@Body req : RequestBody) : Response<User>
 
     @GET("/user/servicio/")
     fun usersConServicio() : Call<List<User>>

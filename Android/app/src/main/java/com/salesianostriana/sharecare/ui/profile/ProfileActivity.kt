@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.lifecycle.Observer
 import butterknife.BindView
 import butterknife.ButterKnife
+import coil.api.load
 import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
@@ -28,32 +29,36 @@ class ProfileActivity @Inject constructor(): AppCompatActivity() {
         (applicationContext as MyApp).getApplicationComponent().inject(this)
         ButterKnife.bind(this)
 
-            userViewModel.user.observe(this, Observer { response ->
-                Log.d("Response", response.toString())
-                when(response) {
+        Log.d("Prueba","Entrada")
 
-                    is Resource.Success -> {
-                        hideProgressBar()
-                        response.data?.let { userDetail ->
-                            Log.d("userDetail", userDetail.toString())
-                            profile_fullname.setText(userDetail.fullName)
-                            profile_localidad.setText(userDetail.localidad)
-                            profile_phone.setText(userDetail.phone)
-                            checkBoxProfileServicio.isChecked=userDetail.servicioCuidados
-                            editTextProfilePrecioHora.setText(userDetail.precioHora.toString())
-                        }
-                    }
-                    is Resource.Error -> {
-                        hideProgressBar()
-                        response.message?.let { message ->
-                            Toast.makeText(this, "Error al cargar el perfil", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                    is Resource.Loading -> {
-                        showProgressBar()
+        userViewModel.user.observe(this, Observer { response ->
+            Log.d("Prueba1","Entra")
+            when(response) {
+
+                is Resource.Success -> {
+                    hideProgressBar()
+                    response.data?.let { userDetail ->
+                        Log.d("userDetail", userDetail.toString())
+                        profile_fullname.setText(userDetail.fullName)
+                        profile_localidad.setText(userDetail.localidad)
+                        profile_phone.setText(userDetail.phone)
+                        profile_image.load(userDetail.img)
+                        checkBoxProfileServicio.isChecked=userDetail.servicioCuidados
+                        editTextProfilePrecioHora.setText(userDetail.precioHora.toString())
                     }
                 }
-            })
+                is Resource.Error -> {
+                    Log.d("Response", response.toString())
+                    //hideProgressBar()
+                    response.message?.let { message ->
+                        Toast.makeText(this, "Error al cargar el perfil", Toast.LENGTH_LONG).show()
+                    }
+                }
+                is Resource.Loading -> {
+                    showProgressBar()
+                }
+            }
+        })
 
 
         buttonProfileSave.setOnClickListener(View.OnClickListener{

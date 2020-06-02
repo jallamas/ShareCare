@@ -42,6 +42,21 @@ class UserController (
         }
     }
 
+    @PostMapping("/nophoto/")
+    fun nuevoUsuarioSinImagen(@RequestBody newUser: CreateUserDTO): ResponseEntity<UserDTO> {
+
+        var prevresult = userService.createSinImagen(newUser)
+        var result :UserDTO?=null
+
+        if (prevresult.isPresent) {
+
+                result=prevresult.get().toUserDTO(null)
+
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(result)
+    }
+
 
     @PreAuthorize("isAuthenticated()")
     @PutMapping("/")
