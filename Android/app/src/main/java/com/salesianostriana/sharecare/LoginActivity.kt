@@ -50,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener(View.OnClickListener { v ->
+
             userViewModel.doLogin(
                 LoginReq(
                     username.text.toString(),
@@ -73,7 +74,6 @@ class LoginActivity : AppCompatActivity() {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             startActivity(registro)
-            finish()
         })
     }
 

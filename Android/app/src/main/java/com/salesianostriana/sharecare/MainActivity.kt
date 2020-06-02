@@ -2,7 +2,6 @@ package com.salesianostriana.sharecare
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.common.MySharedPreferencesManager
+import com.salesianostriana.sharecare.ui.profile.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,13 +25,18 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId==R.id.logout){
             MySharedPreferencesManager().removeStringValue(Constantes.SHARED_PREFERENCES_TOKEN_KEY)
-            Log.d("REMOVE TOKEN", MySharedPreferencesManager().getSharedPreferences().getString(
-                Constantes.SHARED_PREFERENCES_TOKEN_KEY,""))
             val exit : Intent = Intent(MyApp.instance, LoginActivity::class.java).apply{
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             }
             startActivity(exit)
             finish()
+        }
+
+        if(item.itemId==R.id.editProfile){
+            val editProfile : Intent = Intent(MyApp.instance, ProfileActivity::class.java).apply{
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            }
+            startActivity(editProfile)
         }
         return super.onOptionsItemSelected(item)
     }

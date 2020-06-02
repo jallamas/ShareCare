@@ -9,4 +9,11 @@
         android:visible="true"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/editProfile"
+        android:icon="@drawable/ic_user"
+        android:title="@string/editProfile"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+
 </menu>

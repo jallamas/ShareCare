@@ -1,11 +1,16 @@
 package com.salesianostriana.sharecare.repository
 
+import android.content.Intent
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.MutableLiveData
+import com.salesianostriana.sharecare.LoginActivity
+import com.salesianostriana.sharecare.MainActivity
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.common.MySharedPreferencesManager
 import com.salesianostriana.sharecare.models.User
+import com.salesianostriana.sharecare.models.requests.EditUserReq
 import com.salesianostriana.sharecare.models.requests.LoginReq
 import com.salesianostriana.sharecare.models.responses.LoginResponse
 import com.salesianostriana.sharecare.retrofit.ShareCareService
@@ -20,7 +25,6 @@ import javax.inject.Singleton
 @Singleton
 class UserRepository @Inject constructor(var shareCareService: ShareCareService){
     var user: MutableLiveData<User> = MutableLiveData()
-    var newUser: MutableLiveData<User> = MutableLiveData()
     var users: MutableLiveData<List<User>> = MutableLiveData()
 
     fun login(req: LoginReq) : MutableLiveData<User>{
@@ -37,6 +41,10 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
                     user.postValue(null)
                     MySharedPreferencesManager().removeStringValue(Constantes.SHARED_PREFERENCES_TOKEN_KEY)
                     Toast.makeText(MyApp.instance, "El usuario o contraseña no son correctos", Toast.LENGTH_SHORT).show()
+                    val login: Intent = Intent(MyApp.instance, LoginActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    }
+                    MyApp.instance.startActivity(login)
                 }
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -46,8 +54,7 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
         return user
     }
 
-    suspend fun registerNewUser(req: RequestBody, file: MultipartBody.Part) =
-        shareCareService.registerUser(req,file)
+    suspend fun registerNewUser(req: RequestBody, file: MultipartBody.Part) = shareCareService.registerUser(req,file)
 
     fun usuariosConServicio() : MutableLiveData<List<User>>{
         val call :Call<List<User>>? = shareCareService.usersConServicio()
@@ -65,5 +72,9 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
         })
         return users
     }
+
+    suspend fun verPerfilUser() = shareCareService.verPerfil()
+
+    suspend fun editUser(req : EditUserReq) = shareCareService.editUser(req)
 
 }

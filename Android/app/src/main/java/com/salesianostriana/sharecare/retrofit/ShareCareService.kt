@@ -2,6 +2,7 @@ package com.salesianostriana.sharecare.retrofit
 
 import com.salesianostriana.sharecare.models.Solicitud
 import com.salesianostriana.sharecare.models.User
+import com.salesianostriana.sharecare.models.requests.EditUserReq
 import com.salesianostriana.sharecare.models.requests.LoginReq
 import com.salesianostriana.sharecare.models.responses.LoginResponse
 import okhttp3.MultipartBody
@@ -15,13 +16,16 @@ interface ShareCareService {
     @POST("/auth/login")
     fun login(@Body request: LoginReq): Call<LoginResponse>
 
+    @GET("/user/me")
+    suspend fun verPerfil() : Response<User>
+
+
     @Multipart
     @POST("/user/")
     suspend fun registerUser(
         @Part("new") req : RequestBody,
         @Part file: MultipartBody.Part
     ) : Response<User>
-
 
     @GET("/user/servicio/")
     fun usersConServicio() : Call<List<User>>
@@ -31,5 +35,8 @@ interface ShareCareService {
 
     @GET("/solicitud/recibidas/")
     fun solicitudesRecibidas() : Call<List<Solicitud>>
+
+    @PUT("/user/")
+    suspend fun editUser(@Body request : EditUserReq) : Response<User>
 
 }

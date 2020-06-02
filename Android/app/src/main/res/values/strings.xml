@@ -26,4 +26,8 @@
     <string name="register_precio_hint">Precio por hora</string>
     <string name="btn_register_upload_img">Subir imagen</string>
     <string name="btn_register_send">Registrar</string>
+    <string name="btn_profile_save">Guardar</string>
+    <string name="editProfile">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

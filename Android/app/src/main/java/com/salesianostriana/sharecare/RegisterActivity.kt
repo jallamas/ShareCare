@@ -22,6 +22,7 @@ import com.salesianostriana.sharecare.common.Resource
 import com.salesianostriana.sharecare.models.User
 import com.salesianostriana.sharecare.models.requests.RegisterReq
 import com.salesianostriana.sharecare.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.activity_register.view.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -73,15 +74,7 @@ class RegisterActivity : AppCompatActivity() {
     @BindView(R.id.register_progressbar)
     lateinit var progressBar: ProgressBar
 
-    val requestCodeCamara = 0
-    val requestCodeGallery = 1
     var uriPicture: Uri? = null
-
-    val permissions = arrayOf(
-        android.Manifest.permission.READ_EXTERNAL_STORAGE,
-        android.Manifest.permission.CAMERA
-    )
-    val permissionsAll = 2
 
     var file: MultipartBody.Part? = null
 
@@ -97,9 +90,6 @@ class RegisterActivity : AppCompatActivity() {
 
     fun setUploadButton() {
         upload.setOnClickListener {
-            var options = arrayOf<String>("Cámara", "Galería")
-            var dialog = AlertDialog.Builder(this)
-
             startActivityForResult(Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI),0)
         }
     }
@@ -137,12 +127,16 @@ class RegisterActivity : AppCompatActivity() {
 
                 if (password.text.toString().equals(password2.text.toString())) {
                     val request = RegisterReq(username.text.toString(),fullname.text.toString(),localidad.text.toString(),password.text.toString(),
-                        password2.text.toString(),phone.text.toString(),precioHora.text.toString(),servicio.text.toString())
+                        password2.text.toString(),phone.text.toString(),precioHora.text.toString(),servicio.isChecked.toString())
 
                     val requestBody = Gson().toJson(request).toRequestBody("application/json".toMediaTypeOrNull())
 
-                    userViewModel.registerNewUser(requestBody,file!!)
-
+                   if(file==null) {
+                       file = createMultipart( Uri.parse("ic_user.png"))
+                       userViewModel.registerNewUser(requestBody, file!!)
+                   }else {
+                       userViewModel.registerNewUser(requestBody, file!!)
+                   }
                     userViewModel.newUser.observe(this, Observer {
                         when (it) {
                             is Resource.Error -> {
