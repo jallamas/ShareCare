@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 class UserViewModel @Inject constructor(val userRepository: UserRepository) : ViewModel() {
 
-    var newUser : MutableLiveData<Resource<User>> = MutableLiveData()
+
     var user : MutableLiveData<Resource<User>> = MutableLiveData()
     var editUser : MutableLiveData<Resource<User>> = MutableLiveData()
 
@@ -26,19 +26,6 @@ class UserViewModel @Inject constructor(val userRepository: UserRepository) : Vi
         getPerfilUser()
     }
 
-    fun doLogin(req : LoginReq) : LiveData<User> = userRepository.login(req)
-
-    fun registerNewUserPhoto(req : RequestBody, file : MultipartBody.Part) = viewModelScope.launch {
-        newUser.value = Resource.Loading()
-        val resp = userRepository.registerNewUserPhoto(req,file)
-        newUser.value =handleResponse(resp)
-    }
-
-    fun registerNewUser(req : RequestBody) = viewModelScope.launch {
-        newUser.value = Resource.Loading()
-        val resp = userRepository.registerNewUser(req)
-        newUser.value =handleResponse(resp)
-    }
 
     fun getUsersConServicio() :LiveData<List<User>> = userRepository.usuariosConServicio()
 
@@ -54,6 +41,13 @@ class UserViewModel @Inject constructor(val userRepository: UserRepository) : Vi
         delay(1000)
         val response =userRepository.editUser(req)
         editUser.value = handleResponse(response)
+    }
+
+    fun getUserPorId(userId : String) = viewModelScope.launch {
+        user.value = Resource.Loading()
+        delay(1000)
+        val response = userRepository.getUserPorId(userId)
+        user.value = handleResponse(response)
     }
 
     fun handleResponse(response: Response<User>): Resource<User> {

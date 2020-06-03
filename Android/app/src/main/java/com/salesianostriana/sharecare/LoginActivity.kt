@@ -14,25 +14,15 @@ import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.common.MySharedPreferencesManager
 import com.salesianostriana.sharecare.models.requests.LoginReq
+import com.salesianostriana.sharecare.viewmodel.UserAuthViewModel
 import com.salesianostriana.sharecare.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var userViewModel : UserViewModel
-
-    @BindView(R.id.editTextLoginUsername)
-    lateinit var username : EditText
-
-    @BindView(R.id.editTextLoginPassword)
-    lateinit var password : EditText
-
-    @BindView(R.id.textViewLoginRegister)
-    lateinit var register : TextView
-
-    @BindView(R.id.buttonLogin)
-    lateinit var loginButton: Button
+    lateinit var userAuthViewModel : UserAuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,12 +39,12 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        loginButton.setOnClickListener(View.OnClickListener { v ->
+        buttonLogin.setOnClickListener(View.OnClickListener { v ->
 
-            userViewModel.doLogin(
+            userAuthViewModel.doLogin(
                 LoginReq(
-                    username.text.toString(),
-                    password.text.toString()
+                    editTextLoginUsername.text.toString(),
+                    editTextLoginPassword.text.toString()
 
                 )
             ).observe(this, Observer {
@@ -66,10 +56,9 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
             })
-
         })
 
-        register.setOnClickListener(View.OnClickListener {
+        textViewLoginRegister.setOnClickListener(View.OnClickListener {
             val registro : Intent=Intent(MyApp.instance,RegisterActivity::class.java).apply{
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }

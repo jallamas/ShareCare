@@ -29,10 +29,8 @@ class ProfileActivity @Inject constructor(): AppCompatActivity() {
         (applicationContext as MyApp).getApplicationComponent().inject(this)
         ButterKnife.bind(this)
 
-        Log.d("Prueba","Entrada")
-
         userViewModel.user.observe(this, Observer { response ->
-            Log.d("Prueba1","Entra")
+
             when(response) {
 
                 is Resource.Success -> {
@@ -49,7 +47,7 @@ class ProfileActivity @Inject constructor(): AppCompatActivity() {
                 }
                 is Resource.Error -> {
                     Log.d("Response", response.toString())
-                    //hideProgressBar()
+                    hideProgressBar()
                     response.message?.let { message ->
                         Toast.makeText(this, "Error al cargar el perfil", Toast.LENGTH_LONG).show()
                     }

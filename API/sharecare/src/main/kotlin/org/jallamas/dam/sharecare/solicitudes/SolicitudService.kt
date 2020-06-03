@@ -2,6 +2,8 @@ package org.jallamas.dam.sharecare.solicitudes
 
 import org.jallamas.dam.sharecare.entidades.Solicitud
 import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.extended.ExtendedFunctions
+import org.jallamas.dam.sharecare.extended.ExtendedFunctions.Companion.unwrap
 import org.jallamas.dam.sharecare.users.UserRepository
 import org.springframework.stereotype.Service
 import java.time.LocalDate
@@ -12,7 +14,7 @@ class SolicitudService (
         private val solicitudRepository: SolicitudRepository,
         private val userRepository: UserRepository
 ) {
-    fun <T> Optional<T>.unwrap(): T? = orElse(null)
+//    fun <T> Optional<T>.unwrap(): T? = orElse(null)
 
     fun createSolicitud(solicitudDTO: SolicitudDTO, solicitante: User, solicitado: UUID):Optional<Solicitud>{
         val userSolicitado : User = userRepository.findById(solicitado).unwrap() as User

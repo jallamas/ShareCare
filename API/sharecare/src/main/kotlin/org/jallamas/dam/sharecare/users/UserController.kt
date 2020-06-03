@@ -1,6 +1,8 @@
 package org.jallamas.dam.sharecare.users
 
+import org.jallamas.dam.sharecare.entidades.Solicitud
 import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.extended.ExtendedFunctions.Companion.unwrap
 import org.jallamas.dam.sharecare.upload.ImgurBadRequest
 import org.jallamas.dam.sharecare.upload.ImgurStorageService
 import org.springframework.http.HttpStatus
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.server.ResponseStatusException
+import java.util.*
+import kotlin.collections.ArrayList
 
 @Controller
 @RequestMapping("/user")
@@ -88,4 +92,25 @@ class UserController (
         }
         return ResponseEntity.status(HttpStatus.OK).body(result)
     }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/{userId}")
+    fun detalleUser(@PathVariable userId : UUID) = unUsuario(userId)
+
+    private fun unUsuario(userId: UUID): ResponseEntity<UserDTO> {
+        var user: User
+
+        with(userService) {
+            user = findById(userId).unwrap() as User
+        }
+        var result :UserDTO = user.toUserDTO(null)
+        if (user.img != null) {
+            var resource = imgurStorageService.loadAsResource(user.img?.id!!)
+            resource.ifPresent { x -> result = user.toUserDTO(x.url.toString()) }
+        } else {
+            user.toUserDTO(null)
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result)
+    }
+
 }

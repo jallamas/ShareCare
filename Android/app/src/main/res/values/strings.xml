@@ -30,4 +30,7 @@
     <string name="editProfile">Perfil</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_detalle_precio_title">Precio por hora (€):</string>
+    <string name="btn_detalle_user_newsolicitud">Enviar solicitud</string>
+    <string name="detalle_user_comentario_solicitud">Escriba brevemente el objeto de su solicitud</string>
 </resources>

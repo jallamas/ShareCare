@@ -13,6 +13,7 @@ import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.models.User
+import com.salesianostriana.sharecare.ui.UserServicioDetalleActivity
 import kotlinx.android.synthetic.main.fragment_usuarios_servicio.view.*
 
 
@@ -24,11 +25,11 @@ class MyUsersConServicioRecyclerViewAdapter() : RecyclerView.Adapter<MyUsersConS
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as User
-//            var intent = Intent(MyApp.instance, UserServicioDetalleActivity::class.java).apply{
-//                putExtra(Constantes.INTENT_DETAIL_KEY_ID,item.id.toString())
-//                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-//            }
-//            MyApp.instance.startActivity(intent)
+            var intent = Intent(MyApp.instance, UserServicioDetalleActivity::class.java).apply{
+                putExtra(Constantes.INTENT_DETAIL_KEY_ID,item.id)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            MyApp.instance.startActivity(intent)
         }
     }
 

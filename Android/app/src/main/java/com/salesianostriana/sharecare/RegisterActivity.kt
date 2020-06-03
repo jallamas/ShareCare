@@ -21,8 +21,11 @@ import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.common.Resource
 import com.salesianostriana.sharecare.models.User
 import com.salesianostriana.sharecare.models.requests.RegisterReq
+import com.salesianostriana.sharecare.viewmodel.UserAuthViewModel
 import com.salesianostriana.sharecare.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_register.view.*
+import kotlinx.android.synthetic.main.activity_register.view.register_username
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -33,49 +36,9 @@ import javax.inject.Inject
 class RegisterActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var userViewModel: UserViewModel
-
-    @BindView(R.id.register_user_layout)
-    lateinit var layout: ConstraintLayout
-
-    @BindView(R.id.register_username)
-    lateinit var username: EditText
-
-    @BindView(R.id.register_fullname)
-    lateinit var fullname: EditText
-
-    @BindView(R.id.register_phone)
-    lateinit var phone: EditText
-
-    @BindView(R.id.register_localidad)
-    lateinit var localidad: EditText
-
-    @BindView(R.id.editTextRegisterPassword)
-    lateinit var password: EditText
-
-    @BindView(R.id.editTextRegisterPassword2)
-    lateinit var password2: EditText
-
-    @BindView(R.id.editTextPrecioHora)
-    lateinit var precioHora: EditText
-
-    @BindView(R.id.checkBoxServicio)
-    lateinit var servicio: CheckBox
-
-    @BindView(R.id.register_image)
-    lateinit var userImage: ImageView
-
-    @BindView(R.id.button_register_img_upload)
-    lateinit var upload: Button
-
-    @BindView(R.id.buttonRegisterSave)
-    lateinit var register: Button
-
-    @BindView(R.id.register_progressbar)
-    lateinit var progressBar: ProgressBar
+    lateinit var userAuthViewModel : UserAuthViewModel
 
     var uriPicture: Uri? = null
-
     var file: MultipartBody.Part? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,13 +46,13 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         (applicationContext as MyApp).getApplicationComponent().inject(this)
         ButterKnife.bind(this)
-        userImage.visibility = View.INVISIBLE
+        register_image.visibility = View.INVISIBLE
         setUploadButton()
         setSaveButton()
     }
 
     fun setUploadButton() {
-        upload.setOnClickListener {
+        button_register_img_upload.setOnClickListener {
             startActivityForResult(Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI),0)
         }
     }
@@ -99,8 +62,8 @@ class RegisterActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             uriPicture = data?.data
             Log.d("URI", "LA URI ES $uriPicture")
-            userImage.load(uriPicture)
-            userImage.visibility = View.VISIBLE
+            register_image.load(uriPicture)
+            register_image.visibility = View.VISIBLE
             file = createMultipart(uriPicture)
         }
     }
@@ -121,33 +84,33 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun setSaveButton() {
-        register.setOnClickListener {
-            if(username.text.toString().isNotEmpty()&&fullname.text.toString().isNotEmpty()&&phone.text.toString().isNotEmpty()&&localidad.text.toString().isNotEmpty()
-                &&password.text.toString().isNotEmpty()&&password2.text.toString().isNotEmpty()) {
+        buttonRegisterSave.setOnClickListener {
+            if(register_username.text.toString().isNotEmpty()&&register_fullname.text.toString().isNotEmpty()&&register_phone.text.toString().isNotEmpty()&&register_localidad.text.toString().isNotEmpty()
+                &&editTextRegisterPassword.text.toString().isNotEmpty()&&editTextRegisterPassword2.text.toString().isNotEmpty()) {
 
-                if (password.text.toString().equals(password2.text.toString())) {
-                    val request = RegisterReq(username.text.toString(),fullname.text.toString(),localidad.text.toString(),password.text.toString(),
-                        password2.text.toString(),phone.text.toString(),precioHora.text.toString(),servicio.isChecked.toString())
+                if (editTextRegisterPassword.text.toString().equals(editTextRegisterPassword2.text.toString())) {
+                    val request = RegisterReq(register_username.text.toString(),register_fullname.text.toString(),register_localidad.text.toString(),editTextRegisterPassword.text.toString(),
+                        editTextRegisterPassword2.text.toString(),register_phone.text.toString(),editTextPrecioHora.text.toString(),checkBoxServicio.isChecked.toString())
 
                     val requestBody = Gson().toJson(request).toRequestBody("application/json".toMediaTypeOrNull())
 
                    if(file==null) {
-                       userViewModel.registerNewUser(requestBody)
+                       userAuthViewModel.registerNewUser(requestBody)
                    }else {
-                       userViewModel.registerNewUserPhoto(requestBody, file!!)
+                       userAuthViewModel.registerNewUserPhoto(requestBody, file!!)
                    }
-                    userViewModel.newUser.observe(this, Observer {
+                    userAuthViewModel.newUser.observe(this, Observer {
                         when (it) {
                             is Resource.Error -> {
-                                progressBar.visibility = View.INVISIBLE
+                                register_progressbar.visibility = View.INVISIBLE
                                 Handler().postDelayed({
-                                    layout.visibility = View.VISIBLE
+                                    register_user_layout.visibility = View.VISIBLE
                                     Toast.makeText(MyApp.instance,"Se produjo un error en el registro",Toast.LENGTH_SHORT).show()
                                 }, 2000)
                             }
                             is Resource.Success -> {
-                                progressBar.visibility = View.GONE
-                                layout.visibility = View.INVISIBLE
+                                register_progressbar.visibility = View.GONE
+                                register_user_layout.visibility = View.INVISIBLE
                                 Toast.makeText(
                                     MyApp.instance,
                                     "Usuario registrado",
@@ -159,8 +122,8 @@ class RegisterActivity : AppCompatActivity() {
 
                             }
                             is Resource.Loading -> {
-                                progressBar.visibility = View.VISIBLE
-                                layout.visibility = View.INVISIBLE
+                                register_progressbar.visibility = View.VISIBLE
+                                register_user_layout.visibility = View.INVISIBLE
                             }
                         }
 

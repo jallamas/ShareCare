@@ -2,6 +2,7 @@ package com.salesianostriana.sharecare.common
 
 import com.salesianostriana.sharecare.*
 import com.salesianostriana.sharecare.retrofit.ShareCareClient
+import com.salesianostriana.sharecare.ui.UserServicioDetalleActivity
 import com.salesianostriana.sharecare.ui.profile.ProfileActivity
 import com.salesianostriana.sharecare.ui.disponibles.DisponiblesFragment
 import com.salesianostriana.sharecare.ui.enviadas.SolicitudesEnviadasFragment
@@ -18,4 +19,5 @@ interface ApplicationComponent {
     fun inject(solicitudesRecibidasFragment: SolicitudesRecibidasFragment)
     fun inject(registerActivity: RegisterActivity)
     fun inject(profileActivity: ProfileActivity)
+    fun inject(userServicioDetalleActivity: UserServicioDetalleActivity)
 }

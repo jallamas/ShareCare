@@ -4,7 +4,9 @@ import com.salesianostriana.sharecare.models.Solicitud
 import com.salesianostriana.sharecare.models.User
 import com.salesianostriana.sharecare.models.requests.EditUserReq
 import com.salesianostriana.sharecare.models.requests.LoginReq
+import com.salesianostriana.sharecare.models.requests.NewSolicitudReq
 import com.salesianostriana.sharecare.models.responses.LoginResponse
+import com.salesianostriana.sharecare.models.responses.NewSolicitudResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -18,7 +20,6 @@ interface ShareCareService {
 
     @GET("/user/me")
     suspend fun verPerfil() : Response<User>
-
 
     @Multipart
     @POST("/user/")
@@ -42,4 +43,9 @@ interface ShareCareService {
     @PUT("/user/")
     suspend fun editUser(@Body request : EditUserReq) : Response<User>
 
+    @POST("/solicitud/{destinatarioId}")
+    suspend fun newSolicitud(@Path("destinatarioId") destinatarioId : String, @Body req: NewSolicitudReq) : Response<NewSolicitudResponse>
+
+    @GET("/user/{userId}")
+    suspend fun getUserPorId(@Path("userId") userId : String) : Response<User>
 }

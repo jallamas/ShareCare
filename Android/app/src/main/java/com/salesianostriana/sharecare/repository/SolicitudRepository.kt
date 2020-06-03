@@ -4,7 +4,9 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.models.Solicitud
+import com.salesianostriana.sharecare.models.requests.NewSolicitudReq
 import com.salesianostriana.sharecare.retrofit.ShareCareService
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +16,6 @@ import javax.inject.Singleton
 @Singleton
 class SolicitudRepository @Inject constructor(var shareCareService: ShareCareService){
     var solicitud: MutableLiveData<Solicitud> = MutableLiveData()
-    var newSolicitud: MutableLiveData<Solicitud> = MutableLiveData()
     var solicitudes: MutableLiveData<List<Solicitud>> = MutableLiveData()
 
     fun getSolicitudesEnviadas() : MutableLiveData<List<Solicitud>> {
@@ -50,4 +51,6 @@ class SolicitudRepository @Inject constructor(var shareCareService: ShareCareSer
         })
         return solicitudes
     }
+
+    suspend fun newSolicitud(destinatarioId:String, req: NewSolicitudReq) = shareCareService.newSolicitud(destinatarioId,req)
 }

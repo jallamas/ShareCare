@@ -79,4 +79,6 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
 
     suspend fun editUser(req : EditUserReq) = shareCareService.editUser(req)
 
+    suspend fun getUserPorId(userId : String) = shareCareService.getUserPorId(userId)
+
 }

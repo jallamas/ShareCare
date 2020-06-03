@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detalleUser_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.UserServicioDetalleActivity">
+
+    <ProgressBar
+        android:id="@+id/detalleUser_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="168dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewDetalleUserImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textViewDetalleUserFullname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDetalleUserImage" />
+
+    <TextView
+        android:id="@+id/textViewDetalleUserlocalidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDetalleUserFullname"
+        app:layout_constraintStart_toStartOf="@+id/textViewDetalleUserFullname"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetalleUserFullname" />
+
+    <TextView
+        android:id="@+id/textViewDetalleUserPrecioHoraTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/user_detalle_precio_title"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewDetalleUserlocalidad"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetalleUserlocalidad" />
+
+    <TextView
+        android:id="@+id/textViewDetalleUserPrecioHora"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDetalleUserlocalidad"
+        app:layout_constraintStart_toEndOf="@+id/textViewDetalleUserPrecioHoraTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewDetalleUserPrecioHoraTitle" />
+
+    <Button
+        android:id="@+id/buttonDetalleUserNuevaSolicitud"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorAccent"
+        android:text="@string/btn_detalle_user_newsolicitud"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextDetalleUserComentario"
+        app:layout_constraintStart_toStartOf="@+id/editTextDetalleUserComentario"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDetalleUserComentario" />
+
+    <EditText
+        android:id="@+id/editTextDetalleUserComentario"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/detalle_user_comentario_solicitud"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDetalleUserPrecioHora"
+        app:layout_constraintStart_toStartOf="@+id/textViewDetalleUserPrecioHoraTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetalleUserPrecioHoraTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

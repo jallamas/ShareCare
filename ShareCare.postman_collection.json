@@ -210,7 +210,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZDJiYzE3Yy0wMTU1LTQ1ZGItODNhNi1hNzE1MmRiZTQ2Y2YiLCJleHAiOjE1OTE2MTY4NjIsImlhdCI6MTU5MDc1Mjg2MiwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.xZzPsFZzvbBdipxgoGz51Ki6c3E0vdTeVj2xHtnJU960ST2u3kHbbCmE_Yl25CzMzv2v6HLLDtP1JxFh5ohUvQ",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZTE4ODM3My0wMTg2LTRjZWItOWJmNi0zYThmMzIwYzU1ZDAiLCJleHAiOjE1OTIwNDMwNDUsImlhdCI6MTU5MTE3OTA0NSwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.xBA_aS1ZExKc3x3a9xaTGAAZjv16dBpcSWejWxADdNmgW5osTV2VvDRlQRiYi8R91U_8VJHY0ovyidJMPG4syA",
 							"type": "string"
 						}
 					]
@@ -227,14 +227,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/solicitud/72dd067c-d88b-408c-ba03-6a6dad88c570",
+					"raw": "localhost:9000/solicitud/1e7f3876-7d4c-468e-b377-f773670c5950",
 					"host": [
 						"localhost"
 					],
 					"port": "9000",
 					"path": [
 						"solicitud",
-						"72dd067c-d88b-408c-ba03-6a6dad88c570"
+						"1e7f3876-7d4c-468e-b377-f773670c5950"
 					]
 				}
 			},
@@ -265,6 +265,64 @@
 						"solicitud",
 						"recibidas",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro de usuario sin foto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\": \"jallamas16\",\r\n\t\"fullname\": \"Usuario López\",\r\n\t\"password\": \"123456789\",\r\n\t\"password2\": \"123456789\",\r\n\t\"phone\": \"987654321\",\r\n\t\"localidad\": \"Huelva\",\r\n\t\"servicioCuidados\": \"true\",\r\n\t\"precioHora\": \"7.43f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/user/nophoto/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						"nophoto",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario por Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzYjMwY2NhMi1hMGQ2LTRiNTgtOWZhNi03ZjczYTg0ZDU0MWMiLCJleHAiOjE1OTIwNTIxNTMsImlhdCI6MTU5MTE4ODE1MywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.VCSt2O0U9ZgOV-fdvmFfraIYPZ_l5Ddcu6BsgEaAHrev0acgu1pbnIqEKG0h56URYBojqRPPXyJ3tA8pGh-etw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/user/a0f8e3de-b423-4b6c-a17d-d8019aada22f",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"user",
+						"a0f8e3de-b423-4b6c-a17d-d8019aada22f"
 					]
 				}
 			},
