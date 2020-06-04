@@ -44,7 +44,7 @@ interface ShareCareService {
     suspend fun newSolicitud(@Path("destinatarioId") destinatarioId : String, @Body req: NewSolicitudReq) : Response<NewSolicitudResponse>
 
     @GET("/solicitud/emitidas/")
-    fun solicitudesEnviadas() : Call<List<Solicitud>>
+    suspend fun solicitudesEnviadas() : Response<List<Solicitud>>
 
     @GET("/solicitud/recibidas/")
     fun solicitudesRecibidas() : Call<List<Solicitud>>

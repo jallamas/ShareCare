@@ -18,22 +18,7 @@ class SolicitudRepository @Inject constructor(var shareCareService: ShareCareSer
     var solicitud: MutableLiveData<Solicitud> = MutableLiveData()
     var solicitudes: MutableLiveData<List<Solicitud>> = MutableLiveData()
 
-    fun getSolicitudesEnviadas() : MutableLiveData<List<Solicitud>> {
-        val call: Call<List<Solicitud>>? = shareCareService.solicitudesEnviadas()
-        call?.enqueue(object : Callback<List<Solicitud>> {
-            override fun onResponse(call: Call<List<Solicitud>> , response: Response<List<Solicitud>>) {
-                if (response.isSuccessful) {
-                    solicitudes.value = response.body()
-                } else {
-                    Toast.makeText(MyApp.instance,"No hay solicitudes",Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun onFailure(call: Call<List<Solicitud>>, t: Throwable) {
-                Toast.makeText(MyApp.instance, "Se produjo un error", Toast.LENGTH_SHORT).show()
-            }
-        })
-        return solicitudes
-    }
+    suspend fun getSolicitudesEnviadas() = shareCareService.solicitudesEnviadas()
 
     fun getSolicitudesRecibidas() : MutableLiveData<List<Solicitud>> {
         val call: Call<List<Solicitud>>? = shareCareService.solicitudesRecibidas()

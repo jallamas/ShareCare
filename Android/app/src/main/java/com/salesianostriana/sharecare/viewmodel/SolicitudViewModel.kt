@@ -22,8 +22,6 @@ class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudR
     var newSolicitud : MutableLiveData<Resource<NewSolicitudResponse>> = MutableLiveData()
     var deletedSolicitud :  MutableLiveData<Resource<Unit>> = MutableLiveData()
 
-    fun getSolicitudesEnviadas() : LiveData<List<Solicitud>> = solicitudRepository.getSolicitudesEnviadas()
-
     fun getSolicitudesRecibidas() : LiveData<List<Solicitud>> = solicitudRepository.getSolicitudesRecibidas()
 
     fun newSolicitud(destinatarioId:String, req : NewSolicitudReq) = viewModelScope.launch {
@@ -41,10 +39,8 @@ class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudR
         return Resource.Error("Se produjo un error")
     }
 
-
     fun deleteSolicitud(solicitudId : String) = viewModelScope.launch {
         deletedSolicitud.value = Resource.Loading()
-        delay(1000)
         val response = solicitudRepository.deleteSolicitud(solicitudId)
         deletedSolicitud.value = handleResponseDelete(response)
     }
