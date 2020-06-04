@@ -1,5 +1,6 @@
 package com.salesianostriana.sharecare.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudRepository) : ViewModel() {
 
     var newSolicitud : MutableLiveData<Resource<NewSolicitudResponse>> = MutableLiveData()
-    var deletedSolicitud : MutableLiveData<Resource<Void>> = MutableLiveData()
+    var deletedSolicitud :  MutableLiveData<Resource<Unit>> = MutableLiveData()
 
     fun getSolicitudesEnviadas() : LiveData<List<Solicitud>> = solicitudRepository.getSolicitudesEnviadas()
 
@@ -40,14 +41,6 @@ class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudR
         return Resource.Error("Se produjo un error")
     }
 
-    fun handleResponse(response: Response<Solicitud>): Resource<Solicitud> {
-        if (response.isSuccessful) {
-            response.body()?.let { resultResponse ->
-                return Resource.Success(resultResponse)
-            }
-        }
-        return Resource.Error("Se produjo un error")
-    }
 
     fun deleteSolicitud(solicitudId : String) = viewModelScope.launch {
         deletedSolicitud.value = Resource.Loading()
@@ -56,11 +49,9 @@ class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudR
         deletedSolicitud.value = handleResponseDelete(response)
     }
 
-    fun handleResponseDelete(response: Response<Void>): Resource<Void> {
-        if (response.isSuccessful) {
-            response.body()?.let { resultResponse ->
-                return Resource.Success(resultResponse)
-            }
+    fun handleResponseDelete(response: Response<Void>): Resource<Unit> {
+        if(response.isSuccessful) {
+            return Resource.Success(Unit)
         }
         return Resource.Error("Se produjo un error")
     }

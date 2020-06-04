@@ -94,7 +94,7 @@ class SolicitudEnviadaDetalleActivity : AppCompatActivity() {
 
         })
 
-        buttonSolicitudRecibidaDetalleEliminar.setOnClickListener(View.OnClickListener {
+        buttonSolicitudEnviadaDetalleEliminar.setOnClickListener(View.OnClickListener {
             solicitudViewModel.deleteSolicitud(id!!)
 
             solicitudViewModel.deletedSolicitud.observe(this, Observer {

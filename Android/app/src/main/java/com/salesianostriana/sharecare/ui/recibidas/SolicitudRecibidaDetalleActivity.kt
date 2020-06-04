@@ -14,7 +14,6 @@ import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.common.Resource
 import com.salesianostriana.sharecare.viewmodel.SolicitudDetalleViewModel
 import com.salesianostriana.sharecare.viewmodel.SolicitudViewModel
-import kotlinx.android.synthetic.main.activity_solicitud_enviada_detalle.*
 import kotlinx.android.synthetic.main.activity_solicitud_recibida_detalle.*
 import javax.inject.Inject
 
