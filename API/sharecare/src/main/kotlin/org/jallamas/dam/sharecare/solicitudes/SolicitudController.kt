@@ -67,13 +67,13 @@ class SolicitudController (
             }
 
     @DeleteMapping("/{solicitudId}")
-    fun deleteNota(@PathVariable solicitudId : UUID) : ResponseEntity<Void> {
+    fun deleteSolicitud(@PathVariable solicitudId : UUID) : ResponseEntity<Void> {
         solicitudRepository.deleteById(solicitudId)
         return ResponseEntity.noContent().build()
     }
 
     @PutMapping("/{solicitudId}")
-    fun editarSolicitud(@PathVariable solicitudId : UUID, @AuthenticationPrincipal user: User, @RequestBody editSolicitud: SolicitudDTO) : ResponseEntity<SolicitudDTO> =
+    fun editSolicitud(@PathVariable solicitudId : UUID, @AuthenticationPrincipal user: User, @RequestBody editSolicitud: SolicitudDTO) : ResponseEntity<SolicitudDTO> =
             solicitudService.edit(editSolicitud , solicitudId).map { ResponseEntity.status(HttpStatus.OK).body(editSolicitud) }.orElseThrow {
                 ResponseStatusException(HttpStatus.BAD_REQUEST, "Se produjo un error")}
 

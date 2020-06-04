@@ -32,7 +32,6 @@ class UserServicioDetalleActivity @Inject constructor(): AppCompatActivity() {
         ButterKnife.bind(this)
 
         val extras: Bundle? = intent.extras
-
         val id = extras?.getString(Constantes.INTENT_DETAIL_KEY_ID)
 
         userViewModel.getUserPorId(id!!)

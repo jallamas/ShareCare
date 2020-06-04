@@ -53,4 +53,10 @@ class SolicitudRepository @Inject constructor(var shareCareService: ShareCareSer
     }
 
     suspend fun newSolicitud(destinatarioId:String, req: NewSolicitudReq) = shareCareService.newSolicitud(destinatarioId,req)
+
+    suspend fun getSolicitudPorId(solicitudId:String) = shareCareService.getSolicitudPorId(solicitudId)
+
+    suspend fun editSolicitud(solicitudId: String, req: NewSolicitudReq) = shareCareService.editSolicitudPorId(solicitudId,req)
+
+    suspend fun deleteSolicitud(solicitudId: String) = shareCareService.deleteSolicitudPorId(solicitudId)
 }

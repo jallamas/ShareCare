@@ -1,11 +1,14 @@
 package com.salesianostriana.sharecare.ui.recibidas
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.salesianostriana.sharecare.R
+import com.salesianostriana.sharecare.common.Constantes
+import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.models.Solicitud
 import kotlinx.android.synthetic.main.fragment_solicitudes_recibidas.view.*
 import java.util.ArrayList
@@ -17,11 +20,11 @@ class MySolicitudesRecibidasRecyclerViewAdapter : RecyclerView.Adapter<MySolicit
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as Solicitud
-//            var intent = Intent(MyApp.instance, UserServicioDetalleActivity::class.java).apply{
-//                putExtra(Constantes.INTENT_DETAIL_KEY_ID,item.id.toString())
-//                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-//            }
-//            MyApp.instance.startActivity(intent)
+            var intent = Intent(MyApp.instance, SolicitudRecibidaDetalleActivity::class.java).apply{
+                putExtra(Constantes.INTENT_DETAIL_KEY_ID,item.id.toString())
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            MyApp.instance.startActivity(intent)
         }
     }
 

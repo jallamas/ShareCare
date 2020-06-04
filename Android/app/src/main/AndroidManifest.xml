@@ -13,10 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.UserServicioDetalleActivity"></activity>
+        <activity android:name=".ui.recibidas.SolicitudRecibidaDetalleActivity"></activity>
+        <activity android:name=".ui.enviadas.SolicitudEnviadaDetalleActivity" />
+        <activity android:name=".ui.UserServicioDetalleActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

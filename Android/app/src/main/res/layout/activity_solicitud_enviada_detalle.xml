@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detalleSolicitudEnviada_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ic_default_img_background"
+    android:padding="16dp"
+    tools:context=".ui.enviadas.SolicitudEnviadaDetalleActivity">
+
+    <ProgressBar
+        android:id="@+id/detalleSolicitudEnviada_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="168dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSolicitudDetalleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detalle_solicitud_title"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSolicitudDetalleFechaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/detalle_solicitud_fecha_title"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSolicitudDetalleTitle" />
+
+    <TextView
+        android:id="@+id/textViewSolicitudDetalleFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSolicitudDetalleFechaTitle"
+        app:layout_constraintStart_toEndOf="@+id/textViewSolicitudDetalleFechaTitle"
+        app:layout_constraintTop_toTopOf="@+id/textViewSolicitudDetalleFechaTitle" />
+
+    <TextView
+        android:id="@+id/textViewSolicitudDetalleDestinatarioTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/detalle_solicitud_destinatario_title"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textViewSolicitudDetalleFechaTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSolicitudDetalleFechaTitle" />
+
+    <TextView
+        android:id="@+id/textViewSolicitudDetalleDestinatario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewSolicitudDetalleDestinatarioTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSolicitudDetalleDestinatarioTitle" />
+
+    <TextView
+        android:id="@+id/textViewSolicitudDetalleComentarioTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/detalle_solicitud_comentario_title"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textViewSolicitudDetalleDestinatarioTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSolicitudDetalleDestinatario" />
+
+    <EditText
+        android:id="@+id/editTextSolicitudDetalleComentario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewSolicitudDetalleComentarioTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSolicitudDetalleComentarioTitle" />
+
+    <Button
+        android:id="@+id/buttonSolicitudDetalleSave"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/detalle_solicitud_btn_guardar"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSolicitudRecibidaDetalleEliminar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSolicitudDetalleComentario" />
+
+    <Button
+        android:id="@+id/buttonSolicitudEnviadaDetalleEliminar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_error"
+        android:text="@string/detalle_solicitud_btn_eliminar"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSolicitudDetalleSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonSolicitudDetalleSave"
+        app:layout_constraintTop_toTopOf="@+id/buttonSolicitudDetalleSave" />
+</androidx.constraintlayout.widget.ConstraintLayout>

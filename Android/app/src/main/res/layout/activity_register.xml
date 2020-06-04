@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ic_default_img_background"
     tools:context=".RegisterActivity">
 
     <ProgressBar
@@ -23,19 +24,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:layout_editor_absoluteX="-120dp"
+        tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="0dp">
 
         <EditText
             android:id="@+id/register_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:hint="@string/register_username_hint"
             android:inputType="textPersonName"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/register_image" />
 
         <EditText
             android:id="@+id/register_fullname"
@@ -45,6 +48,7 @@
             android:ems="10"
             android:hint="@string/register_fullname_hint"
             android:inputType="textPersonName"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="@+id/register_username"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/register_username"
@@ -58,6 +62,7 @@
             android:ems="10"
             android:hint="@string/register_phone_hint"
             android:inputType="phone"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="@+id/register_fullname"
             app:layout_constraintStart_toStartOf="@+id/register_fullname"
             app:layout_constraintTop_toBottomOf="@+id/register_fullname" />
@@ -70,6 +75,7 @@
             android:ems="10"
             android:hint="@string/register_hint_localidad"
             android:inputType="text"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="@+id/register_phone"
             app:layout_constraintStart_toStartOf="@+id/register_phone"
             app:layout_constraintTop_toBottomOf="@+id/register_phone" />
@@ -77,24 +83,23 @@
 
         <Button
             android:id="@+id/button_register_img_upload"
-            android:layout_width="168dp"
-            android:layout_height="55dp"
-            android:background="@color/colorAccent"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/colorPrimary"
             android:text="@string/btn_register_upload_img"
+            android:textColor="@color/cardview_light_background"
             app:layout_constraintBottom_toBottomOf="@+id/register_image"
-            app:layout_constraintEnd_toEndOf="@+id/editTextPrecioHora"
             app:layout_constraintStart_toEndOf="@+id/register_image"
-            app:layout_constraintTop_toTopOf="@+id/register_image"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/register_image" />
 
         <ImageView
             android:id="@+id/register_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:adjustViewBounds="true"
-            app:layout_constraintStart_toStartOf="@+id/editTextPrecioHora"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPrecioHora"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <EditText
@@ -105,6 +110,7 @@
             android:ems="10"
             android:hint="@string/register_password_hint"
             android:inputType="textPassword"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/register_localidad" />
@@ -117,6 +123,7 @@
             android:ems="10"
             android:hint="@string/register_password2"
             android:inputType="textPassword"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextRegisterPassword" />
@@ -126,7 +133,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:buttonTint="@color/colorPrimary"
             android:text="@string/register_checkbox_servicio"
+            android:textColor="@color/colorPrimary"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,6 +151,7 @@
             android:ems="10"
             android:hint="@string/register_precio_hint"
             android:inputType="numberDecimal"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="@+id/checkBoxServicio"
             app:layout_constraintStart_toStartOf="@+id/checkBoxServicio"
             app:layout_constraintTop_toBottomOf="@+id/checkBoxServicio" />
@@ -148,14 +160,15 @@
             android:id="@+id/buttonRegisterSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:background="@color/colorPrimary"
             android:text="@string/btn_register_send"
             android:textColor="@color/cardview_light_background"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_image" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextPrecioHora" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

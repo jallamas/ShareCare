@@ -30,16 +30,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/servicio_list_fullname_title"
-            app:layout_constraintBottom_toTopOf="@+id/textViewServicioLocalidadTitle"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/user_img"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewEnviadasDescripcionTitle"
+            android:id="@+id/textViewServicioLocalidadTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/servicio_list_localidad_title"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/user_img"
             app:layout_constraintTop_toBottomOf="@+id/textViewServicioFullnameTitle" />
@@ -50,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toEndOf="@+id/textViewServicioFullnameTitle"
             app:layout_constraintTop_toTopOf="@+id/textViewServicioFullnameTitle" />
 
@@ -58,9 +62,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/textViewEnviadasDescripcionTitle"
             app:layout_constraintStart_toStartOf="@+id/textViewServivioListFullname"
-            app:layout_constraintTop_toTopOf="@+id/textViewEnviadasDescripcionTitle" />
+            app:layout_constraintTop_toTopOf="@+id/textViewServicioLocalidadTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

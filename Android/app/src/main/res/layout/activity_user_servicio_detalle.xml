@@ -5,6 +5,7 @@
     android:id="@+id/detalleUser_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ic_default_img_background"
     android:padding="16dp"
     tools:context=".ui.UserServicioDetalleActivity">
 
@@ -36,6 +37,7 @@
         android:layout_marginTop="32dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +50,7 @@
         android:layout_marginTop="32dp"
         android:text="TextView"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textViewDetalleUserFullname"
         app:layout_constraintStart_toStartOf="@+id/textViewDetalleUserFullname"
@@ -59,6 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/user_detalle_precio_title"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textViewDetalleUserlocalidad"
         app:layout_constraintTop_toBottomOf="@+id/textViewDetalleUserlocalidad" />
@@ -69,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textViewDetalleUserlocalidad"
         app:layout_constraintStart_toEndOf="@+id/textViewDetalleUserPrecioHoraTitle"
@@ -79,10 +84,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
         android:text="@string/btn_detalle_user_newsolicitud"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/cardview_light_background"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/editTextDetalleUserComentario"
         app:layout_constraintStart_toStartOf="@+id/editTextDetalleUserComentario"
         app:layout_constraintTop_toBottomOf="@+id/editTextDetalleUserComentario" />
@@ -96,6 +102,8 @@
         android:gravity="start|top"
         android:hint="@string/detalle_user_comentario_solicitud"
         android:inputType="textMultiLine"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/textViewDetalleUserPrecioHora"
         app:layout_constraintStart_toStartOf="@+id/textViewDetalleUserPrecioHoraTitle"
         app:layout_constraintTop_toBottomOf="@+id/textViewDetalleUserPrecioHoraTitle" />

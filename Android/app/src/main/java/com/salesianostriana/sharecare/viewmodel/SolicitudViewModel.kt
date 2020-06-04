@@ -10,6 +10,7 @@ import com.salesianostriana.sharecare.models.User
 import com.salesianostriana.sharecare.models.requests.NewSolicitudReq
 import com.salesianostriana.sharecare.models.responses.NewSolicitudResponse
 import com.salesianostriana.sharecare.repository.SolicitudRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudRepository) : ViewModel() {
 
     var newSolicitud : MutableLiveData<Resource<NewSolicitudResponse>> = MutableLiveData()
+    var deletedSolicitud : MutableLiveData<Resource<Void>> = MutableLiveData()
 
     fun getSolicitudesEnviadas() : LiveData<List<Solicitud>> = solicitudRepository.getSolicitudesEnviadas()
 
@@ -30,6 +32,31 @@ class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudR
     }
 
     fun handleNewSolicitudResponse(response: Response<NewSolicitudResponse>): Resource<NewSolicitudResponse> {
+        if (response.isSuccessful) {
+            response.body()?.let { resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+        return Resource.Error("Se produjo un error")
+    }
+
+    fun handleResponse(response: Response<Solicitud>): Resource<Solicitud> {
+        if (response.isSuccessful) {
+            response.body()?.let { resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+        return Resource.Error("Se produjo un error")
+    }
+
+    fun deleteSolicitud(solicitudId : String) = viewModelScope.launch {
+        deletedSolicitud.value = Resource.Loading()
+        delay(1000)
+        val response = solicitudRepository.deleteSolicitud(solicitudId)
+        deletedSolicitud.value = handleResponseDelete(response)
+    }
+
+    fun handleResponseDelete(response: Response<Void>): Resource<Void> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Resource.Success(resultResponse)

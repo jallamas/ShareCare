@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
+    android:background="@color/ic_default_img_background"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.enviadas.SolicitudesEnviadasFragment"
-    tools:listitem="@layout/fragment_solicitudes_enviadas"/>
+    tools:listitem="@layout/fragment_solicitudes_enviadas" />

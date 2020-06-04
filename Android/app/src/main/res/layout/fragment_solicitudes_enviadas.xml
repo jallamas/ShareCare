@@ -20,6 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,6 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/enviadas_list_descripcion_title"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEnviadasDestinatarioTitle"
             app:layout_constraintTop_toBottomOf="@+id/textViewEnviadasDestinatarioTitle"
@@ -40,6 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/enviadas_list_destinatario_title"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewEnviadasFecha" />
 
@@ -49,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/textViewEnviadasDescripcionTitle"
             app:layout_constraintStart_toEndOf="@+id/textViewEnviadasDescripcionTitle"
             app:layout_constraintTop_toTopOf="@+id/textViewEnviadasDescripcionTitle" />
@@ -59,9 +66,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/textViewEnviadasDestinatarioTitle"
             app:layout_constraintStart_toEndOf="@+id/textViewEnviadasDestinatarioTitle"
             app:layout_constraintTop_toTopOf="@+id/textViewEnviadasDestinatarioTitle" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

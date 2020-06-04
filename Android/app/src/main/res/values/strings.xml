@@ -33,4 +33,12 @@
     <string name="user_detalle_precio_title">Precio por hora (€):</string>
     <string name="btn_detalle_user_newsolicitud">Enviar solicitud</string>
     <string name="detalle_user_comentario_solicitud">Escriba brevemente el objeto de su solicitud</string>
+    <string name="detalle_solicitud_title">DETALLE DE SOLICITUD</string>
+    <string name="detalle_solicitud_fecha_title">Fecha:</string>
+    <string name="detalle_solicitud_destinatario_title">Destinatario:</string>
+    <string name="detalle_solicitud_comentario_title">Comentario:</string>
+    <string name="detalle_solicitud_btn_guardar">guardar</string>
+    <string name="detalle_solicitud_btn_eliminar">eliminar</string>
+    <string name="detalle_solicitud_remitente_title">Remitente:</string>
+    <string name="detalle_solicitud_phone_remitente_title">Teléfono:</string>
 </resources>

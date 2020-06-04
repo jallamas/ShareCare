@@ -34,18 +34,27 @@ interface ShareCareService {
     @GET("/user/servicio/")
     fun usersConServicio() : Call<List<User>>
 
+    @PUT("/user/")
+    suspend fun editUser(@Body request : EditUserReq) : Response<User>
+
+    @GET("/user/{userId}")
+    suspend fun getUserPorId(@Path("userId") userId : String) : Response<User>
+
+    @POST("/solicitud/{destinatarioId}")
+    suspend fun newSolicitud(@Path("destinatarioId") destinatarioId : String, @Body req: NewSolicitudReq) : Response<NewSolicitudResponse>
+
     @GET("/solicitud/emitidas/")
     fun solicitudesEnviadas() : Call<List<Solicitud>>
 
     @GET("/solicitud/recibidas/")
     fun solicitudesRecibidas() : Call<List<Solicitud>>
 
-    @PUT("/user/")
-    suspend fun editUser(@Body request : EditUserReq) : Response<User>
+    @GET("/solicitud/{solicitudId}")
+    suspend fun getSolicitudPorId(@Path("solicitudId") solicitudId : String) : Response<Solicitud>
 
-    @POST("/solicitud/{destinatarioId}")
-    suspend fun newSolicitud(@Path("destinatarioId") destinatarioId : String, @Body req: NewSolicitudReq) : Response<NewSolicitudResponse>
+    @PUT("/solicitud/{solicitudId}")
+    suspend fun editSolicitudPorId(@Path("solicitudId") solicitudId : String, @Body req: NewSolicitudReq) : Response<Solicitud>
 
-    @GET("/user/{userId}")
-    suspend fun getUserPorId(@Path("userId") userId : String) : Response<User>
+    @DELETE("/solicitud/{solicitudId}")
+    suspend fun deleteSolicitudPorId(@Path("solicitudId") solicitudId : String) : Response<Void>
 }

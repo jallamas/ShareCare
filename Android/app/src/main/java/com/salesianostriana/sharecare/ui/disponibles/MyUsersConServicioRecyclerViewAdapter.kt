@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.salesianostriana.sharecare.R
@@ -14,7 +13,7 @@ import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.models.User
 import com.salesianostriana.sharecare.ui.UserServicioDetalleActivity
-import kotlinx.android.synthetic.main.fragment_usuarios_servicio.view.*
+import kotlinx.android.synthetic.main.fragment_user_disponible.view.*
 
 
 class MyUsersConServicioRecyclerViewAdapter() : RecyclerView.Adapter<MyUsersConServicioRecyclerViewAdapter.ViewHolder>() {

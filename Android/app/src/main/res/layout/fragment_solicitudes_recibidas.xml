@@ -20,6 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,6 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/recibidas_list_solicitante_title"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textViewRecibidasFecha"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasFecha" />
 
@@ -38,6 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/recibidas_list_descripcion_title"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasPhoneSolicitanteTitle" />
 
@@ -47,6 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/recibidas_list_phone_title"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textViewRecibidasSolicitanteTitle"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasSolicitanteTitle" />
 
@@ -56,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/textViewRecibidasSolicitanteTitle"
             app:layout_constraintStart_toEndOf="@+id/textViewRecibidasSolicitanteTitle"
             app:layout_constraintTop_toTopOf="@+id/textViewRecibidasSolicitanteTitle" />
@@ -66,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/textViewRecibidasPhoneSolicitanteTitle"
             app:layout_constraintStart_toStartOf="@+id/textViewRecibidasSolicitante"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecibidasSolicitanteTitle" />
@@ -75,6 +85,7 @@
             android:layout_width="299dp"
             android:layout_height="18dp"
             android:text="TextView"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewRecibidasPhoneSolicitante"
             app:layout_constraintTop_toTopOf="@+id/textViewRecibidasDescripcionTitle" />
