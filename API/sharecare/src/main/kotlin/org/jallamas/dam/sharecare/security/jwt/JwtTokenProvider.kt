@@ -3,7 +3,7 @@ package org.jallamas.dam.sharecare.security.jwt
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.*
 import io.jsonwebtoken.security.Keys
-import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.entidades.MyUser
 import java.util.*
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -26,16 +26,16 @@ class JwtTokenProvider() {
     private val logger : Logger = LoggerFactory.getLogger(JwtTokenProvider::class.java)
 
     fun generateToken(authentication : Authentication) : String {
-        val user : User = authentication.principal as User
+        val myUser : MyUser = authentication.principal as MyUser
         val tokenExpirationDate = Date(System.currentTimeMillis() + (jwtDuracionTokenEnSegundos * 1000))
         return Jwts.builder()
                 .signWith(Keys.hmacShaKeyFor(jwtSecreto.toByteArray()), SignatureAlgorithm.HS512)
                 .setHeaderParam("typ", TOKEN_TYPE)
-                .setSubject(user.id.toString())
+                .setSubject(myUser.id.toString())
                 .setExpiration(tokenExpirationDate)
                 .setIssuedAt(Date())
-                .claim("fullname", user.fullName)
-                .claim("roles", user.roles.joinToString())
+                .claim("fullname", myUser.fullName)
+                .claim("roles", myUser.roles.joinToString())
                 .compact()
     }
 

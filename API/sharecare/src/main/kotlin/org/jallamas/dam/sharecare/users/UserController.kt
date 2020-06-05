@@ -1,7 +1,6 @@
 package org.jallamas.dam.sharecare.users
 
-import org.jallamas.dam.sharecare.entidades.Solicitud
-import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.entidades.MyUser
 import org.jallamas.dam.sharecare.extended.ExtendedFunctions.Companion.unwrap
 import org.jallamas.dam.sharecare.upload.ImgurBadRequest
 import org.jallamas.dam.sharecare.upload.ImgurStorageService
@@ -64,8 +63,8 @@ class UserController (
 
     @PreAuthorize("isAuthenticated()")
     @PutMapping("/")
-    fun editarUsuario(@AuthenticationPrincipal user: User, @RequestBody editUser: EditUserDTO): ResponseEntity<EditUserDTO> =
-            userService.edit(editUser, user).map { ResponseEntity.status(HttpStatus.OK).body(editUser) }.orElseThrow {
+    fun editarUsuario(@AuthenticationPrincipal myUser: MyUser, @RequestBody editUser: EditUserDTO): ResponseEntity<EditUserDTO> =
+            userService.edit(editUser, myUser).map { ResponseEntity.status(HttpStatus.OK).body(editUser) }.orElseThrow {
                 ResponseStatusException(HttpStatus.BAD_REQUEST, "Se produjo un error")
             }
 
@@ -124,17 +123,17 @@ class UserController (
 
 
     private fun unUsuario(userId: UUID): ResponseEntity<UserDTO> {
-        var user: User
+        var myUser: MyUser
 
         with(userService) {
-            user = findById(userId).unwrap() as User
+            myUser = findById(userId).unwrap() as MyUser
         }
-        var result :UserDTO = user.toUserDTO(null)
-        if (user.img != null) {
-            var resource = imgurStorageService.loadAsResource(user.img?.id!!)
-            resource.ifPresent { x -> result = user.toUserDTO(x.url.toString()) }
+        var result :UserDTO = myUser.toUserDTO(null)
+        if (myUser.img != null) {
+            var resource = imgurStorageService.loadAsResource(myUser.img?.id!!)
+            resource.ifPresent { x -> result = myUser.toUserDTO(x.url.toString()) }
         } else {
-            user.toUserDTO(null)
+            myUser.toUserDTO(null)
         }
         return ResponseEntity.status(HttpStatus.OK).body(result)
     }

@@ -1,7 +1,7 @@
 package org.jallamas.dam.sharecare.users
 
 
-import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.entidades.MyUser
 import org.jallamas.dam.sharecare.upload.ImgurImageAttribute
 import org.jallamas.dam.sharecare.upload.ImgurStorageService
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -16,7 +16,7 @@ class UserService (
     val imgurStorageService: ImgurStorageService
     ) {
 
-    fun create(newUser: CreateUserDTO, file: MultipartFile): Optional<User> {
+    fun create(newUser: CreateUserDTO, file: MultipartFile): Optional<MyUser> {
 
         var imageAttribute: ImgurImageAttribute? = null
 
@@ -30,14 +30,14 @@ class UserService (
         }else {
             return Optional.of(
                     with(newUser) {
-                        repo.save(User(username, encoder.encode(password), fullname, phone, localidad, servicioCuidados,
+                        repo.save(MyUser(username, encoder.encode(password), fullname, phone, localidad, servicioCuidados,
                                 precioHora,imageAttribute, mutableSetOf("USER")))
                     }
             )
         }
     }
 
-    fun createSinImagen(newUser: CreateUserDTO): Optional<User> {
+    fun createSinImagen(newUser: CreateUserDTO): Optional<MyUser> {
 
         var imageAttribute: ImgurImageAttribute? = null
 
@@ -47,7 +47,7 @@ class UserService (
             return Optional.of(
                     with(newUser) {
                         repo.save(
-                                User(
+                                MyUser(
                                         username,
                                         encoder.encode(password),
                                         fullname,
@@ -64,17 +64,17 @@ class UserService (
         }
     }
 
-    fun edit(editedUser: EditUserDTO, user:User) : Optional<User>{
-        with(user) {
+    fun edit(editedUser: EditUserDTO, myUser:MyUser) : Optional<MyUser>{
+        with(myUser) {
             fullName = editedUser.fullname
             localidad = editedUser.localidad
             phone = editedUser.phone
             servicioCuidados = editedUser.servicioCuidados
             precioHora = editedUser.precioHora
         }
-        repo.save(user)
+        repo.save(myUser)
 
-        return Optional.of(user)
+        return Optional.of(myUser)
     }
 
     fun findByUsername(username: String) = repo.findByUsername(username)

@@ -2,7 +2,7 @@ package org.jallamas.dam.sharecare.solicitudes
 
 
 import org.jallamas.dam.sharecare.entidades.Solicitud
-import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.entidades.MyUser
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.annotation.AuthenticationPrincipal
@@ -35,10 +35,10 @@ class SolicitudController (
     }
 
     @GetMapping("/emitidas/")
-    fun todasEmitidasPorUsuario(@AuthenticationPrincipal user : User): ResponseEntity<List<Solicitud>> {
+    fun todasEmitidasPorUsuario(@AuthenticationPrincipal myUser : MyUser): ResponseEntity<List<Solicitud>> {
         var result: List<Solicitud>
 
-        result = todasLasSolicitudes().filter { it.solicitante.equals(user) }.map { it }
+        result = todasLasSolicitudes().filter { it.solicitante.equals(myUser) }.map { it }
 
         if (result.isEmpty())
             throw ResponseStatusException(HttpStatus.NOT_FOUND, "No hay solicitudes hechas por este usuario")
@@ -47,10 +47,10 @@ class SolicitudController (
     }
 
     @GetMapping("/recibidas/")
-    fun todasRecibidasPorUsuario(@AuthenticationPrincipal user : User) : ResponseEntity<List<Solicitud>> {
+    fun todasRecibidasPorUsuario(@AuthenticationPrincipal myUser : MyUser) : ResponseEntity<List<Solicitud>> {
         var result: List<Solicitud>
 
-        result = todasLasSolicitudes().filter { it.solicitado.equals(user) }.map { it }
+        result = todasLasSolicitudes().filter { it.solicitado.equals(myUser) }.map { it }
 
         if (result.isEmpty())
             throw ResponseStatusException(HttpStatus.NOT_FOUND, "No hay solicitudes recibidas por este usuario")
@@ -61,8 +61,8 @@ class SolicitudController (
     fun detalleSolicitud(@PathVariable solicitudId : UUID) = unaSolicitud(solicitudId)
 
     @PostMapping("/{userId}")
-    fun createSolicitud(@PathVariable userId : UUID, @AuthenticationPrincipal user : User , @RequestBody createSolicitud: SolicitudDTO) : ResponseEntity<SolicitudDTO> =
-            solicitudService.createSolicitud(createSolicitud,user,userId).map{ResponseEntity.status(HttpStatus.CREATED).body(createSolicitud)}.orElseThrow {
+    fun createSolicitud(@PathVariable userId : UUID, @AuthenticationPrincipal myUser : MyUser, @RequestBody createSolicitud: SolicitudDTO) : ResponseEntity<SolicitudDTO> =
+            solicitudService.createSolicitud(createSolicitud,myUser,userId).map{ResponseEntity.status(HttpStatus.CREATED).body(createSolicitud)}.orElseThrow {
                 ResponseStatusException(HttpStatus.BAD_REQUEST, "Se produjo un error")
             }
 
@@ -73,7 +73,7 @@ class SolicitudController (
     }
 
     @PutMapping("/{solicitudId}")
-    fun editSolicitud(@PathVariable solicitudId : UUID, @AuthenticationPrincipal user: User, @RequestBody editSolicitud: SolicitudDTO) : ResponseEntity<SolicitudDTO> =
+    fun editSolicitud(@PathVariable solicitudId : UUID, @AuthenticationPrincipal myUser: MyUser, @RequestBody editSolicitud: SolicitudDTO) : ResponseEntity<SolicitudDTO> =
             solicitudService.edit(editSolicitud , solicitudId).map { ResponseEntity.status(HttpStatus.OK).body(editSolicitud) }.orElseThrow {
                 ResponseStatusException(HttpStatus.BAD_REQUEST, "Se produjo un error")}
 

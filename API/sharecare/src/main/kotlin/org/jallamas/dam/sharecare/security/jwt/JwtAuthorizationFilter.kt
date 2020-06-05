@@ -1,6 +1,6 @@
 package org.jallamas.dam.sharecare.security.jwt
 
-import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.entidades.MyUser
 import org.jallamas.dam.sharecare.users.UserService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -30,10 +30,10 @@ class JwtAuthorizationFilter(
             getJwtFromRequest(request).ifPresent { token ->
                 if (jwtTokenProvider.validateToken(token)) {
                     val userId = jwtTokenProvider.getUserIdFromJWT(token)
-                    val user : User = userService.findById(userId).orElseThrow {
+                    val myUser : MyUser = userService.findById(userId).orElseThrow {
                         UsernameNotFoundException("No se ha podido encontrar el usuario a partir de su ID")
                     }
-                    val authentication = UsernamePasswordAuthenticationToken(user, user.roles, user.authorities)
+                    val authentication = UsernamePasswordAuthenticationToken(myUser, myUser.roles, myUser.authorities)
                     authentication.details = WebAuthenticationDetails(request)
                     SecurityContextHolder.getContext().authentication = authentication
                 }

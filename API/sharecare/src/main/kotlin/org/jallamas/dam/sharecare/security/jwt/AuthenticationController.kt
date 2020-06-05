@@ -1,6 +1,6 @@
 package org.jallamas.dam.sharecare.security.jwt
 
-import org.jallamas.dam.sharecare.entidades.User
+import org.jallamas.dam.sharecare.entidades.MyUser
 import org.jallamas.dam.sharecare.upload.ImgurStorageService
 import org.jallamas.dam.sharecare.users.UserDTO
 import org.jallamas.dam.sharecare.users.toUserDTO
@@ -30,7 +30,7 @@ class AuthenticationController(
 
         SecurityContextHolder.getContext().authentication = authentication
 
-        val user = authentication.principal as User
+        val user = authentication.principal as MyUser
         val jwtToken = jwtTokenProvider.generateToken(authentication)
         var result :UserDTO = user.toUserDTO(null)
         if (user.img != null) {
@@ -45,13 +45,13 @@ class AuthenticationController(
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/user/me")
-    fun me(@AuthenticationPrincipal user: User) : UserDTO{
-        var result :UserDTO = user.toUserDTO(null)
-        if (user.img != null) {
-            var resource = imgurStorageService.loadAsResource(user.img?.id!!)
-            resource.ifPresent { x -> result = user.toUserDTO(x.url.toString()) }
+    fun me(@AuthenticationPrincipal myUser: MyUser) : UserDTO{
+        var result :UserDTO = myUser.toUserDTO(null)
+        if (myUser.img != null) {
+            var resource = imgurStorageService.loadAsResource(myUser.img?.id!!)
+            resource.ifPresent { x -> result = myUser.toUserDTO(x.url.toString()) }
         } else {
-            user.toUserDTO(null)
+            myUser.toUserDTO(null)
         }
         return result
     }

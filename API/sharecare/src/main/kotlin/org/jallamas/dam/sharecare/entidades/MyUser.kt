@@ -10,7 +10,7 @@ import kotlin.collections.HashSet
 import org.springframework.security.core.userdetails.UserDetails
 
 @Entity
-data class User (
+data class MyUser (
         @Column(nullable = false, unique = true)
         private var username: String,
         private var password: String,
@@ -55,7 +55,7 @@ data class User (
         override fun equals(other: Any?): Boolean {
                 if (this === other)
                         return true
-                if (other === null || other !is User)
+                if (other === null || other !is MyUser)
                         return false
                 if (this::class != other::class)
                         return false
