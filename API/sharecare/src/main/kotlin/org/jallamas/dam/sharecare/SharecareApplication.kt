@@ -41,11 +41,11 @@ class InitDataComponent(
 				,true,4.5f, ImgurImageAttribute("ZvOe1OV","HDmUdb29rlPfHpn"))
 		userRepository.save(user2)
 
-		val user3 = User("jallamas3", encoder.encode("12345678"),"Carmen Gaona","321456987", "Sevilla"
+		val user3 = User("jallamas3", encoder.encode("12345678"),"Carmen Gaona","321456987", "Dos Hermanas"
 				,true,7.5f, ImgurImageAttribute("DkbRq2t","xWUFB53FPz6eYP9"))
 		userRepository.save(user3)
 
-		val user4 = User("jallamas4", encoder.encode("12345678"),"Jesús Martín","789654123", "Sevilla"
+		val user4 = User("jallamas4", encoder.encode("12345678"),"Jesús Martín","789654123", "Huelva"
 				,true,6.5f, ImgurImageAttribute("LCg61vP","HZadeolHsXOzfPz"))
 		userRepository.save(user4)
 

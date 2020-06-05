@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,6 +25,7 @@ class DisponiblesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         (activity?.applicationContext as MyApp).getApplicationComponent().inject(this)
     }
 
@@ -32,7 +34,6 @@ class DisponiblesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user_disponible_list, container, false)
-
         usersAdapter = MyUsersConServicioRecyclerViewAdapter()
 
         // Set the adapter
@@ -65,6 +66,12 @@ class DisponiblesFragment : Fragment() {
                 }
             }
         })
+
+        val buscar = view.findViewById<ImageButton>(R.id.imageButtonBuscarLocalidad)
+
+        buscar.setOnClickListener {
+            userDisponiblesViewModel.getUsuariosDisponiblesPorLocalidad(editTextViewBuscarLocalidad.text.toString())
+        }
 
         return view
     }

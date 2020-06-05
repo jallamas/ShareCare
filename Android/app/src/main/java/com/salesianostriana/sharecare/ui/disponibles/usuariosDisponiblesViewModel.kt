@@ -24,6 +24,12 @@ class usuariosDisponiblesViewModel @Inject constructor(private val userRepositor
         usuariosDisponibles.value = handleUsuariosDisponiblesResponse(response)
     }
 
+    fun getUsuariosDisponiblesPorLocalidad(localidad : String) = viewModelScope.launch {
+        usuariosDisponibles.value = Resource.Loading()
+        val response = userRepository.usuariosConServicioPorLocalidad(localidad)
+        usuariosDisponibles.value = handleUsuariosDisponiblesResponse(response)
+    }
+
     private fun handleUsuariosDisponiblesResponse(response: Response<List<User>>) : Resource<List<User>> {
         if(response.isSuccessful) {
             response.body()?.let { resultResponse ->

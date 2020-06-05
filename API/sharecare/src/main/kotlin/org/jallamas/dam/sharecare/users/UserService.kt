@@ -83,4 +83,7 @@ class UserService (
 
     fun findByServicioCuidadosTrue() = repo.findByServicioCuidadosTrue()
 
+    fun findByServicioCuidadosTrueAndLocalidad(localidad: String) =
+            repo.findByServicioCuidadosTrueAndLocalidadContainingIgnoreCase(localidad)
+
 }

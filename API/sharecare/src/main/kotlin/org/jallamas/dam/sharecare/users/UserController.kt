@@ -97,6 +97,32 @@ class UserController (
     @GetMapping("/{userId}")
     fun detalleUser(@PathVariable userId : UUID) = unUsuario(userId)
 
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/servicio/buscar{localidad}")
+    fun usuariosConServicioPorLocalidad(@RequestParam("localidad") localidad : String): ResponseEntity<List<UserDTO>>{
+        val prevresult = userService.findByServicioCuidadosTrueAndLocalidad(localidad)
+        var result = ArrayList<UserDTO>()
+        if (prevresult.isNotEmpty()) {
+
+            prevresult.forEach {
+
+                if (it.img != null) {
+                    var resource = imgurStorageService.loadAsResource(it.img?.id!!)
+                    resource.ifPresent { x -> result.add(it.toUserDTO(x.url.toString())) }
+                } else {
+                    result.add(it.toUserDTO(null))
+                }
+            }
+
+            if (result.isEmpty())
+                throw ResponseStatusException(HttpStatus.NOT_FOUND, "No hay usuarios que ofrezcan el servicio en este momento")
+
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result)
+    }
+
+
+
     private fun unUsuario(userId: UUID): ResponseEntity<UserDTO> {
         var user: User
 

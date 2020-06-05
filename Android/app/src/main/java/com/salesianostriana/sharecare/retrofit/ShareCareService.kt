@@ -31,6 +31,9 @@ interface ShareCareService {
     @GET("/user/servicio/")
     suspend fun usersConServicio() : Response<List<User>>
 
+    @GET("/user/servicio/buscar")
+    suspend fun usersConServicioPorLocalidad(@Query("localidad") localidad : String) : Response<List<User>>
+
     @PUT("/user/")
     suspend fun editUser(@Body request : EditUserReq) : Response<User>
 

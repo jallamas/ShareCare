@@ -10,4 +10,6 @@ interface UserRepository : JpaRepository<User, UUID> {
 
     fun findByServicioCuidadosTrue (): List<User>
 
+    fun findByServicioCuidadosTrueAndLocalidadContainingIgnoreCase(localidad : String) : List<User>
+
 }

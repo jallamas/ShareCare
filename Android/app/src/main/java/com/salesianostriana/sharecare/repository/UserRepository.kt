@@ -60,6 +60,8 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
 
     suspend fun usuariosConServicio() = shareCareService.usersConServicio()
 
+    suspend fun usuariosConServicioPorLocalidad(localidad : String) = shareCareService.usersConServicioPorLocalidad(localidad)
+
     suspend fun verPerfilUser() = shareCareService.verPerfil()
 
     suspend fun editUser(req : EditUserReq) = shareCareService.editUser(req)
