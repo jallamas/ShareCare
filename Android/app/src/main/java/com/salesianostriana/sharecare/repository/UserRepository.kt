@@ -58,22 +58,7 @@ class UserRepository @Inject constructor(var shareCareService: ShareCareService)
 
     suspend fun registerNewUser(req: RequestBody) = shareCareService.registerUser(req)
 
-    fun usuariosConServicio() : MutableLiveData<List<User>>{
-        val call :Call<List<User>>? = shareCareService.usersConServicio()
-        call?.enqueue(object : Callback<List<User>>{
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-                if(response.isSuccessful){
-                    users.value = response.body()
-                }else{
-                    Toast.makeText(MyApp.instance, "Error al listar los usuarios", Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
-                Toast.makeText(MyApp.instance, "Se produjo un error", Toast.LENGTH_SHORT).show()
-            }
-        })
-        return users
-    }
+    suspend fun usuariosConServicio() = shareCareService.usersConServicio()
 
     suspend fun verPerfilUser() = shareCareService.verPerfil()
 

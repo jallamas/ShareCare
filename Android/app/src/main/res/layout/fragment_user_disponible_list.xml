@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
     android:name="com.salesianostriana.sharecare.ui.disponibles.UsuariosDisponiblesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:background="@color/ic_default_img_background"
-    app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.disponibles.DisponiblesFragment"
-    tools:listitem="@layout/fragment_user_disponible" />
+    tools:context=".ui.disponibles.DisponiblesFragment">
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewBuscarLocalidad"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_disponibles_localidad_buscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/disponiblesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/autoCompleteTextViewBuscarLocalidad"
+        tools:listitem="@layout/fragment_user_disponible" />
+
+    <ProgressBar
+        android:id="@+id/usuariosDisponibles_ProgressBar"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonBuscarLocalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:src="@android:drawable/ic_menu_search"
+        android:tint="@color/cardview_light_background"
+        app:layout_constraintBottom_toBottomOf="@+id/autoCompleteTextViewBuscarLocalidad"
+        app:layout_constraintStart_toEndOf="@+id/autoCompleteTextViewBuscarLocalidad"
+        app:layout_constraintTop_toTopOf="@+id/autoCompleteTextViewBuscarLocalidad" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

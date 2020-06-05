@@ -22,8 +22,6 @@ class SolicitudViewModel @Inject constructor(val solicitudRepository: SolicitudR
     var newSolicitud : MutableLiveData<Resource<NewSolicitudResponse>> = MutableLiveData()
     var deletedSolicitud :  MutableLiveData<Resource<Unit>> = MutableLiveData()
 
-    fun getSolicitudesRecibidas() : LiveData<List<Solicitud>> = solicitudRepository.getSolicitudesRecibidas()
-
     fun newSolicitud(destinatarioId:String, req : NewSolicitudReq) = viewModelScope.launch {
         newSolicitud.value = Resource.Loading()
         val resp = solicitudRepository.newSolicitud(destinatarioId,req)

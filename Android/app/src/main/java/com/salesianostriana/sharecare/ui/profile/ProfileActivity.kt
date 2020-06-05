@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_profile.*
 import javax.inject.Inject
 
 class ProfileActivity @Inject constructor(): AppCompatActivity() {
-    @Inject lateinit var userViewModel : UserViewModel
+    @Inject lateinit var profileViewModel: ProfileViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class ProfileActivity @Inject constructor(): AppCompatActivity() {
         (applicationContext as MyApp).getApplicationComponent().inject(this)
         ButterKnife.bind(this)
 
-        userViewModel.user.observe(this, Observer { response ->
+        profileViewModel.user.observe(this, Observer { response ->
 
             when(response) {
 
@@ -46,7 +46,6 @@ class ProfileActivity @Inject constructor(): AppCompatActivity() {
                     }
                 }
                 is Resource.Error -> {
-                    Log.d("Response", response.toString())
                     hideProgressBar()
                     response.message?.let { message ->
                         Toast.makeText(this, "Error al cargar el perfil", Toast.LENGTH_LONG).show()
@@ -68,9 +67,9 @@ class ProfileActivity @Inject constructor(): AppCompatActivity() {
                 editTextProfilePrecioHora.text.toString()
             )
 
-            userViewModel.editUser(req)
+            profileViewModel.editUser(req)
 
-            userViewModel.editUser.observe(this,Observer{
+            profileViewModel.editUser.observe(this,Observer{
                 when (it) {
                     is Resource.Error -> {
                         profile_progressbar.visibility = View.INVISIBLE

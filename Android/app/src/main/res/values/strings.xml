@@ -41,4 +41,5 @@
     <string name="detalle_solicitud_btn_eliminar">eliminar</string>
     <string name="detalle_solicitud_remitente_title">Remitente:</string>
     <string name="detalle_solicitud_phone_remitente_title">Teléfono:</string>
+    <string name="hint_disponibles_localidad_buscar">Localidad a buscar</string>
 </resources>

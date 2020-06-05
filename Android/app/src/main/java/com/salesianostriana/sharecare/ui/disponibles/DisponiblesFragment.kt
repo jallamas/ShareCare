@@ -12,17 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.MyApp
-import com.salesianostriana.sharecare.models.User
-import com.salesianostriana.sharecare.viewmodel.UserViewModel
+import com.salesianostriana.sharecare.common.Resource
+import kotlinx.android.synthetic.main.fragment_user_disponible_list.*
 import javax.inject.Inject
 
 class DisponiblesFragment : Fragment() {
 
     private var columnCount = 1
-    @Inject
-    lateinit var userViewModel: UserViewModel
+    @Inject lateinit var userDisponiblesViewModel: usuariosDisponiblesViewModel
     private lateinit var usersAdapter: MyUsersConServicioRecyclerViewAdapter
-    private var users: List<User> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,25 +32,49 @@ class DisponiblesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user_disponible_list, container, false)
+
         usersAdapter = MyUsersConServicioRecyclerViewAdapter()
+
         // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = usersAdapter
+        val recyclerView = view.findViewById<RecyclerView>(R.id.disponiblesRecyclerView)
+
+        with(recyclerView) {
+            layoutManager = when {
+                columnCount <= 1 -> LinearLayoutManager(context)
+                else -> GridLayoutManager(context, columnCount)
             }
+            adapter = usersAdapter
         }
 
-        userViewModel.getUsersConServicio().observe(viewLifecycleOwner, Observer {
-            if(it!=null){
-                users = it
-                Log.d("usuarios",users.toString())
-                usersAdapter.setData(users)
+        userDisponiblesViewModel.usuariosDisponibles.observe(viewLifecycleOwner, Observer {
+            when(it) {
+                is Resource.Success -> {
+                    hideProgressBar()
+                    it.data?.let { results ->
+                        usersAdapter.setData(results)
+                    }
+                }
+                is Resource.Error -> {
+                    hideProgressBar()
+                    it.message?.let { message ->
+                        Log.e("Error", "An error occured: $message")
+                    }
+                }
+                is Resource.Loading -> {
+                    showProgressBar()
+                }
             }
         })
+
         return view
+    }
+
+    private fun hideProgressBar() {
+        usuariosDisponibles_ProgressBar.visibility = View.INVISIBLE
+    }
+
+    private fun showProgressBar() {
+
+        usuariosDisponibles_ProgressBar.visibility = View.VISIBLE
     }
 }

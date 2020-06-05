@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:name="com.salesianostriana.sharecare.ui.recibidas.SolicitudesRecibidasFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:background="@color/ic_default_img_background"
-    app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.recibidas.SolicitudesRecibidasFragment"
-    tools:listitem="@layout/fragment_solicitudes_recibidas" />
+    tools:context=".ui.recibidas.SolicitudesRecibidasFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recibidasRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/fragment_solicitudes_recibidas" />
+
+    <ProgressBar
+        android:id="@+id/solicitudesRecibidas_ProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,16 +23,13 @@ interface ShareCareService {
 
     @Multipart
     @POST("/user/")
-    suspend fun registerUserPhoto(
-        @Part("new") req : RequestBody,
-        @Part file: MultipartBody.Part
-    ) : Response<User>
+    suspend fun registerUserPhoto(@Part("new") req : RequestBody,@Part file: MultipartBody.Part) : Response<User>
 
     @POST("/user/nophoto/")
     suspend fun registerUser(@Body req : RequestBody) : Response<User>
 
     @GET("/user/servicio/")
-    fun usersConServicio() : Call<List<User>>
+    suspend fun usersConServicio() : Response<List<User>>
 
     @PUT("/user/")
     suspend fun editUser(@Body request : EditUserReq) : Response<User>
@@ -47,7 +44,7 @@ interface ShareCareService {
     suspend fun solicitudesEnviadas() : Response<List<Solicitud>>
 
     @GET("/solicitud/recibidas/")
-    fun solicitudesRecibidas() : Call<List<Solicitud>>
+    suspend fun solicitudesRecibidas() : Response<List<Solicitud>>
 
     @GET("/solicitud/{solicitudId}")
     suspend fun getSolicitudPorId(@Path("solicitudId") solicitudId : String) : Response<Solicitud>
