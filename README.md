@@ -9,6 +9,8 @@ El Api se encuentra desplegada en heroku.
 
 Hay toda una batería de usuarios creados para poder interactuar entre ellos.
 
+EN EL CASO DE PROBAR LA APLICACIÓN EN LOCAL HAY QUE TENER EN CUENTA QUE LOS DATOS DE PRUEBA USAN IMÁGENES PREVIAMENTE SUBIDAS A MI CUENTA DE IMGUR Y, LÓGICAMENTE, NO ESTARÁN DISPONIBLES.
+
 ## ¿Cuáles son las funcionalidades de la aplicación?
 
 * Un usuario, al registrarse, indicará si ofrece el servicio de cuidado de personas (niños, ancianos, etc) a domicilio y el precio que cobra por hora. En el caso de no proporcionar esos datos (no ofrece servicio), no aparecerá en la lista de personas que ofrecen servicios.
@@ -26,3 +28,14 @@ Hay toda una batería de usuarios creados para poder interactuar entre ellos.
 
 adjunto una [colección de peticiones de postman](https://github.com/jallamas/ShareCare/blob/master/ShareCare.postman_collection.json) con las que poder probar el API.
 
+## postgreSQL
+
+* En el Api:
+   
+   * Se incluye un fichero docker-compose para levantar un contenedor de postgresql (docker-compose up -d)
+   
+   *En el fichero aplication.properties se incluyen las instrucciones necesarias. La url de la base de datos contiene la IP con la que está configurado el Docker Toolbox.
+  
+ * En la aplicación Android:
+   
+   * Se incluye en las constantes las url local y de heroku (con una comentada)
