@@ -1,6 +1,8 @@
 # ShareCare
 App de solicitud/oferta de servicio de cuidados a domicilio de niños y ancianos. API spring-boot y app Android en Kotlin
 
+El Api se encuentra desplegada en heroku.
+
 ## Usuarios
     * username = usuario
     * password = usuario
@@ -24,12 +26,3 @@ Hay toda una batería de usuarios creados para poder interactuar entre ellos.
 
 adjunto una [colección de peticiones de postman](https://github.com/jallamas/ShareCare/blob/master/ShareCare.postman_collection.json) con las que poder probar el API.
 
-## ¿Cuáles es el estado actual del proyecto?
-
-* El Api está, salvo errores que no se hayan detectado, terminada.
-
-* La aplicación de android tiene funcionando el login y los tres listados principales a los que tiene acceso el usuario (Usuarios que ofrecen servicio, solicitudes de contacto enviadas y recibidas.
-
-* En la App Android falta terminar de depurar el registro que está pero no funciona bien, la opción de editar el perfil del usuario, implementar la búsqueda por localidad en el listado de cuidadores, las opciones de añadir, editar y eliminar solicitudes de contacto enviadas, la opción de eliminar solicitudes recibidas y dar el estilo estético al diseño de toda la aplicación.
-
-* Por último habrá que migrar la base de datos a PostgreSQL y desplegar la aplicación.
