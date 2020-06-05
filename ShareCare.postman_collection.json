@@ -31,11 +31,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/user/",
+					"raw": "https://sharecaredam.herokuapp.com/user/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"user",
 						""
@@ -52,7 +54,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYzg3Njg5Mi0zNTZkLTRmMmEtOTRjMC1hNmM0OTM5OWU0NDkiLCJleHAiOjE1OTE3MTUyODMsImlhdCI6MTU5MDg1MTI4MywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiIn0.jhkeLxtiDYzXiwGDF0IV9T20x_8IxJpPwsBYS3eUxJ2nvB1X0S2-TsChtLFW0lHljbK-Li30pUnh7iwIyzq7MA",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZGY5NmZiMS1mNGRjLTQ4OGQtYWJiZS0zZGRiNzc5YjI5MDYiLCJleHAiOjE1OTIyNDk0MzQsImlhdCI6MTU5MTM4NTQzNCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.gvYnS6vbPocyt8kLkxT8RGc1hocUrRth32Hr2A0CAJhrcTFkDmMEqGjtj-NR8OFweUq2hFORhCbjlFtE-DX-vQ",
 							"type": "string"
 						}
 					]
@@ -60,11 +62,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/user/servicio/",
+					"raw": "https://sharecaredam.herokuapp.com/user/servicio/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"user",
 						"servicio",
@@ -82,7 +86,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMmUwZTcyNy0zMDBjLTQ2ZjctYTQ5MS00NDAxNGY3ZTlhOTciLCJleHAiOjE1OTEyOTMyNjgsImlhdCI6MTU5MDQyOTI2OCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.wL97xsjmIum-Vs8vx-uTWmv1qjOTljhK4f50zt2CXXz4fhOw0rTjNeLuymmScDrEemCsHH56Deb3XCvsKA1U-A",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZGY5NmZiMS1mNGRjLTQ4OGQtYWJiZS0zZGRiNzc5YjI5MDYiLCJleHAiOjE1OTIyNDk0MzQsImlhdCI6MTU5MTM4NTQzNCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.gvYnS6vbPocyt8kLkxT8RGc1hocUrRth32Hr2A0CAJhrcTFkDmMEqGjtj-NR8OFweUq2hFORhCbjlFtE-DX-vQ",
 							"type": "string"
 						}
 					]
@@ -90,11 +94,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/user/me",
+					"raw": "https://sharecaredam.herokuapp.com/user/me",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"user",
 						"me"
@@ -111,7 +117,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMmUwZTcyNy0zMDBjLTQ2ZjctYTQ5MS00NDAxNGY3ZTlhOTciLCJleHAiOjE1OTEyOTMyNjgsImlhdCI6MTU5MDQyOTI2OCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.wL97xsjmIum-Vs8vx-uTWmv1qjOTljhK4f50zt2CXXz4fhOw0rTjNeLuymmScDrEemCsHH56Deb3XCvsKA1U-A",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhMjUxNGI2MC0zMWUwLTQxYzEtYjdkZC0yMDUyNzA3ZmIzNzQiLCJleHAiOjE1OTIyMjMxNjIsImlhdCI6MTU5MTM1OTE2MiwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.x3Myn_0H-j5s8yfT8vPx1I9zpHX0SgkNCD6TOrR6Yi-Azy5koP1MmWuu2vCtWJeh4c8Y25kXgD_Q6uWTO3t7_A",
 							"type": "string"
 						}
 					]
@@ -120,7 +126,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"fullname\": \"José Antonio Llamas\",\n\t\"phone\": \"987654321\",\n\t\"localidad\": \"Sevilla\",\n\t\"servicioCuidados\": \"false\",\n\t\"precioHora\": \"\"\n}",
+					"raw": "{\n\t\"fullname\": \"José Antonio Llamas\",\n\t\"phone\": \"987654321\",\n\t\"localidad\": \"Huelva\",\n\t\"servicioCuidados\": \"false\",\n\t\"precioHora\": \"\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,11 +134,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/user/",
+					"raw": "https://sharecaredam.herokuapp.com/user/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"user",
 						""
@@ -159,11 +167,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/auth/login",
+					"raw": "https://sharecaredam.herokuapp.com/auth/login",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"auth",
 						"login"
@@ -180,7 +190,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMDMyODdjZi00ZmYyLTQzN2YtYjMwNi01Zjg4Nzg4ZTg0ZjMiLCJleHAiOjE1OTE2MTYwMDIsImlhdCI6MTU5MDc1MjAwMywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.2e9sHDrustZXP32fXoPyYjQ0INy4u4dvLz9tB5-5G6VK60I7EScAkrpmtw7O2GUAXsJdgMu8uyRdByukYKgULA",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxNGM5ZTkwMS0zNDI3LTQ4ZGQtOGFmMi0zNTMyYThjZDFiZWYiLCJleHAiOjE1OTIxNDY4MjcsImlhdCI6MTU5MTI4MjgyNywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.rXvVr5ScOju92wYUKcGtaUD_ZRoRO_VqTJDJNgNmDTUqkEvzpZqZSY63OiwwWieyY151lrFARALYdgpn6qt5gQ",
 							"type": "string"
 						}
 					]
@@ -188,11 +198,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/solicitud/emitidas/",
+					"raw": "https://sharecaredam.herokuapp.com/solicitud/emitidas/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"solicitud",
 						"emitidas",
@@ -210,7 +222,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZTE4ODM3My0wMTg2LTRjZWItOWJmNi0zYThmMzIwYzU1ZDAiLCJleHAiOjE1OTIwNDMwNDUsImlhdCI6MTU5MTE3OTA0NSwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.xBA_aS1ZExKc3x3a9xaTGAAZjv16dBpcSWejWxADdNmgW5osTV2VvDRlQRiYi8R91U_8VJHY0ovyidJMPG4syA",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzYjMwY2NhMi1hMGQ2LTRiNTgtOWZhNi03ZjczYTg0ZDU0MWMiLCJleHAiOjE1OTIwNTIxNTMsImlhdCI6MTU5MTE4ODE1MywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.VCSt2O0U9ZgOV-fdvmFfraIYPZ_l5Ddcu6BsgEaAHrev0acgu1pbnIqEKG0h56URYBojqRPPXyJ3tA8pGh-etw",
 							"type": "string"
 						}
 					]
@@ -227,14 +239,16 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/solicitud/1e7f3876-7d4c-468e-b377-f773670c5950",
+					"raw": "https://sharecaredam.herokuapp.com/solicitud/a0f8e3de-b423-4b6c-a17d-d8019aada22f",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"solicitud",
-						"1e7f3876-7d4c-468e-b377-f773670c5950"
+						"a0f8e3de-b423-4b6c-a17d-d8019aada22f"
 					]
 				}
 			},
@@ -248,7 +262,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmODMzYTk4Ni1iOGJiLTRlYjktYTBjOC0xZDgwY2M2NjYyYzIiLCJleHAiOjE1OTE3MTgzNzEsImlhdCI6MTU5MDg1NDM3MSwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.tbqXzYC3zlDY_d0v7JvRtWIUAE4q0scrLCXY3c2MeotR7J7cs4D6cA63ZvHJRSAgYEgK5QsBCF72hxnPsepwfA",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1Y2E5Zjk3ZS00ZDNkLTQxYmQtYTY4MC1hZWU2ZjE3NWY3M2UiLCJleHAiOjE1OTIxNTkxOTQsImlhdCI6MTU5MTI5NTE5NCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.AFIkWWUToeTFd_kh50E_3VNz89XW2UmCibexUwa5nm7d3OD8VK83zW70-L2vSCqtXIin_znmI7tuUj3vzucT-Q",
 							"type": "string"
 						}
 					]
@@ -256,11 +270,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/solicitud/recibidas/",
+					"raw": "https://sharecaredam.herokuapp.com/solicitud/recibidas/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"solicitud",
 						"recibidas",
@@ -285,11 +301,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:9000/user/nophoto/",
+					"raw": "https://sharecaredam.herokuapp.com/user/nophoto/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"user",
 						"nophoto",
@@ -307,7 +325,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzYjMwY2NhMi1hMGQ2LTRiNTgtOWZhNi03ZjczYTg0ZDU0MWMiLCJleHAiOjE1OTIwNTIxNTMsImlhdCI6MTU5MTE4ODE1MywiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.VCSt2O0U9ZgOV-fdvmFfraIYPZ_l5Ddcu6BsgEaAHrev0acgu1pbnIqEKG0h56URYBojqRPPXyJ3tA8pGh-etw",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzYjMwY2NhMi1hMGQ2LTRiNTgtOWZhNi03ZjczYTg0ZDU0MWMiLCJleHAiOjE1OTIwNTI0NDEsImlhdCI6MTU5MTE4ODQ0MSwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.ANt9Ow2OMMM0AAHfxd07uMVymFy4ub0hM1AInBkaDmFHhoU7EvUt4UFd_JjFzcfw_lvlxUf8VNTL2X33PFpmvA",
 							"type": "string"
 						}
 					]
@@ -315,14 +333,54 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9000/user/a0f8e3de-b423-4b6c-a17d-d8019aada22f",
+					"raw": "https://sharecaredam.herokuapp.com/user/a0f8e3de-b423-4b6c-a17d-d8019aada22f",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sharecaredam",
+						"herokuapp",
+						"com"
 					],
-					"port": "9000",
 					"path": [
 						"user",
 						"a0f8e3de-b423-4b6c-a17d-d8019aada22f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado de usuarios que ofrecen servicio por localidad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZGY5NmZiMS1mNGRjLTQ4OGQtYWJiZS0zZGRiNzc5YjI5MDYiLCJleHAiOjE1OTIyNDk0MzQsImlhdCI6MTU5MTM4NTQzNCwiZnVsbG5hbWUiOiJKb3PDqSBBbnRvbmlvIExsYW1hcyIsInJvbGVzIjoiVVNFUiJ9.gvYnS6vbPocyt8kLkxT8RGc1hocUrRth32Hr2A0CAJhrcTFkDmMEqGjtj-NR8OFweUq2hFORhCbjlFtE-DX-vQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sharecaredam.herokuapp.com/user/servicio/buscar?localidad=huelva",
+					"protocol": "https",
+					"host": [
+						"sharecaredam",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"servicio",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "localidad",
+							"value": "huelva"
+						}
 					]
 				}
 			},
