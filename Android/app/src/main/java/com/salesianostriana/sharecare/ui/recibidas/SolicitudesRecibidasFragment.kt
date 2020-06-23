@@ -20,7 +20,7 @@ class SolicitudesRecibidasFragment : Fragment() {
 
     private var columnCount = 1
     @Inject lateinit var solicitudesRecibidasViewModel: SolicitudesRecibidasViewModel
-    private lateinit var solicitudesRecibidasAdapter: MySolicitudesRecibidasRecyclerViewAdapter
+    lateinit var solicitudesRecibidasAdapter: MySolicitudesRecibidasRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

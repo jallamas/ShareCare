@@ -25,7 +25,6 @@ class DisponiblesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         (activity?.applicationContext as MyApp).getApplicationComponent().inject(this)
     }
 

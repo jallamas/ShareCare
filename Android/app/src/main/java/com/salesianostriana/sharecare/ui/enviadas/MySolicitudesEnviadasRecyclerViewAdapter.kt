@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.salesianostriana.sharecare.MainActivity
 import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
@@ -16,15 +17,17 @@ import java.util.ArrayList
 class MySolicitudesEnviadasRecyclerViewAdapter() : RecyclerView.Adapter<MySolicitudesEnviadasRecyclerViewAdapter.ViewHolder>() {
     private val mOnClickListener: View.OnClickListener
     private var solicitudes: List<Solicitud> = ArrayList()
+    private val activity : MainActivity = MainActivity()
 
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as Solicitud
             var intent = Intent(MyApp.instance, SolicitudEnviadaDetalleActivity::class.java).apply{
-                putExtra(Constantes.INTENT_DETAIL_KEY_ID,item.id.toString())
+                putExtra(Constantes.INTENT_DETAIL_KEY_ID,item.id)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             MyApp.instance.startActivity(intent)
+            activity.finishMe()
         }
     }
 

@@ -1,5 +1,6 @@
 package com.salesianostriana.sharecare.ui.recibidas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import butterknife.ButterKnife
+import com.salesianostriana.sharecare.MainActivity
 import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
@@ -20,6 +22,7 @@ import javax.inject.Inject
 class SolicitudRecibidaDetalleActivity : AppCompatActivity() {
 
     @Inject lateinit var solicitudDetalleViewModel: SolicitudDetalleViewModel
+    @Inject lateinit var solicitudesRecibidasViewModel: SolicitudesRecibidasViewModel
     @Inject lateinit var solicitudViewModel: SolicitudViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +63,7 @@ class SolicitudRecibidaDetalleActivity : AppCompatActivity() {
         })
 
         buttonSolicitudRecibidaDetalleEliminar.setOnClickListener(View.OnClickListener {
-            solicitudViewModel.deleteSolicitud(id!!)
+            solicitudViewModel.deleteSolicitud(id)
 
             solicitudViewModel.deletedSolicitud.observe(this, Observer {
                 when (it) {
@@ -80,6 +83,7 @@ class SolicitudRecibidaDetalleActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         Handler().postDelayed({
+                            goToFragment()
                             finish()
                         }, 2000)
 
@@ -90,7 +94,15 @@ class SolicitudRecibidaDetalleActivity : AppCompatActivity() {
                     }
                 }
             })
+
         })
+    }
+
+    fun goToFragment(){
+        var i: Intent = Intent(MyApp.instance, MainActivity::class.java).apply {
+            putExtra("FromSolicitud", "2");
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK}
+        startActivity(i)
     }
 
     private fun hideProgressBar() {

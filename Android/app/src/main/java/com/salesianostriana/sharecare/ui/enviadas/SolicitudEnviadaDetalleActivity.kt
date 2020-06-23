@@ -1,13 +1,16 @@
 package com.salesianostriana.sharecare.ui.enviadas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import butterknife.ButterKnife
+import com.salesianostriana.sharecare.MainActivity
 import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
@@ -81,6 +84,7 @@ class SolicitudEnviadaDetalleActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         Handler().postDelayed({
+                            goToFragment()
                             finish()
                         }, 2000)
 
@@ -115,6 +119,7 @@ class SolicitudEnviadaDetalleActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                         Handler().postDelayed({
+                            goToFragment()
                             finish()
                         }, 2000)
 
@@ -128,6 +133,18 @@ class SolicitudEnviadaDetalleActivity : AppCompatActivity() {
         })
 
 
+    }
+
+    fun goToFragment(){
+        var i:Intent = Intent(MyApp.instance, MainActivity::class.java).apply {
+            putExtra("FromSolicitud", "1");
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK}
+        startActivity(i)
+    }
+
+    @Override
+    fun OnBackPressed (){
+        startActivity(Intent(MyApp.instance, SolicitudesEnviadasFragment::class.java).apply {flags = Intent.FLAG_ACTIVITY_NEW_TASK})
     }
 
     private fun hideProgressBar() {

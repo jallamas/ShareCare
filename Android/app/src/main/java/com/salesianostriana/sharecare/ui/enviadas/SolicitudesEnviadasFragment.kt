@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.salesianostriana.sharecare.R
+import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
 import com.salesianostriana.sharecare.common.Resource
 import kotlinx.android.synthetic.main.fragment_solicitudes_enviadas_list.*

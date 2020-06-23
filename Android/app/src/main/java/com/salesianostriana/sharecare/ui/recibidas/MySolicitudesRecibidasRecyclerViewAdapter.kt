@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.salesianostriana.sharecare.MainActivity
 import com.salesianostriana.sharecare.R
 import com.salesianostriana.sharecare.common.Constantes
 import com.salesianostriana.sharecare.common.MyApp
@@ -16,6 +17,7 @@ import java.util.ArrayList
 class MySolicitudesRecibidasRecyclerViewAdapter : RecyclerView.Adapter<MySolicitudesRecibidasRecyclerViewAdapter.ViewHolder>() {
     private val mOnClickListener: View.OnClickListener
     private var solicitudes: List<Solicitud> = ArrayList()
+    private val activity : MainActivity = MainActivity()
 
     init {
         mOnClickListener = View.OnClickListener { v ->
@@ -25,6 +27,7 @@ class MySolicitudesRecibidasRecyclerViewAdapter : RecyclerView.Adapter<MySolicit
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             }
             MyApp.instance.startActivity(intent)
+            activity.finishMe()
         }
     }
 
@@ -54,7 +57,7 @@ class MySolicitudesRecibidasRecyclerViewAdapter : RecyclerView.Adapter<MySolicit
         solicitudes = solicitudesList
         notifyDataSetChanged()
     }
-
+    
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         val descripcion = mView.textViewRecibidasDescripcion
         val fecha = mView.textViewRecibidasFecha
