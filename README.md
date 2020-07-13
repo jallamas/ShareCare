@@ -1,5 +1,7 @@
 # ShareCare
-App de solicitud/oferta de servicio de cuidados a domicilio de niños y ancianos. API spring-boot y app Android en Kotlin
+App de solicitud/oferta de servicio de cuidados a domicilio de niños y ancianos. API spring-boot y app Android en Kotlin.
+
+Proyecto realizado en el marco de la Fase de Prácticas del CFGS "Desarrollo de Aplicaciones Multiplataforma" con la normativa aplicada por el COVID-19.
 
 El Api se encuentra desplegada en heroku.
 
